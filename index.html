@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoleShift Kids — Early Digital Foot Screening</title>
+<meta name="description" content="SoleShift Kids uses 3D scanning and automated analysis to screen children's feet, generate clear reports for parents, and connect families to specialists with consent.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5 4 5.5v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10v-6L12 2.5Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><path d="m8.5 12 2.4 2.4L15.5 9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M20 8V5a1 1 0 0 0-1-1h-3M4 16v3a1 1 0 0 0 1 1h3M20 16v3a1 1 0 0 1-1 1h-3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4 12h16" stroke="currentColor" stroke-width="1.5" stroke-dasharray="1 3" stroke-linecap="round"/></symbol>
+<symbol id="i-cpu" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M18 6l-2 2M6 18l2-2M18 18l-2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><path d="M14 3v4h4M9 12h6M9 15.5h6M9 8.5h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M5 20c0-3.5 3.1-6 7-6s7 2.5 7 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.2" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="17" cy="6" r="2.2" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="17" cy="18" r="2.2" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 11l7-4M8 13l7 4" stroke="currentColor" stroke-width="1.5"/></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.2" stroke="currentColor" stroke-width="1.5" fill="none"/></symbol>
+<symbol id="i-light" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8.5 14A4.5 4.5 0 1 1 15.5 14c-.6.9-1 1.6-1 2.5h-5c0-.9-.4-1.6-1-2.5Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-foot" viewBox="0 0 24 24"><path d="M9 21c-2 0-3.5-1.4-3.5-4 0-2 .6-3 .6-5.2 0-2.3-.9-3-1-5C5 4.5 6.3 3 8 3c2.6 0 3 3 3.3 5 .4 2.4 1.4 3 2.7 4.4 1.6 1.7 3 2.8 3 5.3 0 2-1.5 3.3-3.5 3.3-2.3 0-2-1.5-4.5-1.5Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.5" fill="none"/></symbol>
+<symbol id="i-id" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="8.5" cy="11" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M5.5 16c.5-1.6 1.8-2.4 3-2.4s2.5.8 3 2.4M14 9.5h5M14 13h5M14 16h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-undo" viewBox="0 0 24 24"><path d="M8 8H4V4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 8.5A8 8 0 1 1 6 16" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="i-school" viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M21 8v6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="i-clinic" viewBox="0 0 24 24"><path d="M4 21V9l8-5 8 5v12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><path d="M12 22v-6M9 13h6M9 22h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-8.8C1.3 8 3 5 6.3 5c2 0 3.4 1.2 5.7 3.5C14.3 6.2 15.7 5 17.7 5 21 5 22.7 8 21.3 11.2 19 15.6 12 20 12 20Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></symbol>
+<symbol id="i-node" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="4" cy="5" r="1.6" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="20" cy="5" r="1.6" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="4" cy="19" r="1.6" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="20" cy="19" r="1.6" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M9.8 10.3 5.3 6.3M14.2 10.3l4.5-4M9.8 13.7l-4.5 4M14.2 13.7l4.5 4" stroke="currentColor" stroke-width="1.3"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="m3.5 6 8.5 7 8.5-7" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13l4.5 4.5L19 7" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 11v5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="8" r="0.9" fill="currentColor"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><rect x="7" y="13" width="2.6" height="7" fill="currentColor"/><rect x="12" y="9" width="2.6" height="11" fill="currentColor"/><rect x="17" y="6" width="2.6" height="14" fill="currentColor"/></symbol>
+</defs>
+</svg>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="wordmark">SoleShift <span>Kids</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how-it-works" data-i18n="nav.how">How It Works</a>
+      <a href="#technology" data-i18n="nav.tech">Technology</a>
+      <a href="#for-schools" data-i18n="nav.schools">For Schools</a>
+      <a href="#learn-more" data-i18n="nav.learn">Learn More</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-switch" data-lang-switch>
+        <button type="button" class="lang-current" aria-haspopup="true" aria-expanded="false">EN</button>
+        <div class="lang-menu" role="menu">
+          <button type="button" class="lang-option" data-lang="en" role="menuitem">EN — English</button>
+          <button type="button" class="lang-option" data-lang="ru" role="menuitem">RU — Русский</button>
+          <button type="button" class="lang-option" data-lang="az" role="menuitem">AZ — Azərbaycan</button>
+        </div>
+      </div>
+      <a href="mailto:hello@soleshiftkids.org?subject=Screening%20request&body=Hi%20SoleShift%20Kids%20team%2C%0A%0AWe%27d%20like%20to%20request%20a%20foot%20screening.%0A%0ASchool%2Forganization%3A%0ALocation%3A%0APreferred%20dates%3A%0A%0AThanks%21" class="btn btn-primary btn-sm" data-i18n="cta.request">Request a Screening</a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false" data-i18n-aria="a11y.toggleMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <div class="nav-mobile-lang">
+      <button type="button" class="lang-option" data-lang="en">EN</button>
+      <button type="button" class="lang-option" data-lang="ru">RU</button>
+      <button type="button" class="lang-option" data-lang="az">AZ</button>
+    </div>
+    <a href="#how-it-works" data-i18n="nav.how">How It Works</a>
+    <a href="#technology" data-i18n="nav.tech">Technology</a>
+    <a href="#for-schools" data-i18n="nav.schools">For Schools</a>
+    <a href="#learn-more" data-i18n="nav.learn">Learn More</a>
+    <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    <a href="mailto:hello@soleshiftkids.org?subject=Screening%20request&body=Hi%20SoleShift%20Kids%20team%2C%0A%0AWe%27d%20like%20to%20request%20a%20foot%20screening.%0A%0ASchool%2Forganization%3A%0ALocation%3A%0APreferred%20dates%3A%0A%0AThanks%21" class="btn btn-primary btn-sm" data-i18n="cta.request">Request a Screening</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-contours" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy reveal">
+      <p class="eyebrow" data-i18n="hero.eyebrow">Early digital foot screening</p>
+      <h1 data-i18n="hero.h1">Early foot screening for every child.</h1>
+      <p class="lede" data-i18n="hero.lede">SoleShift Kids uses 3D scanning and automated analysis to capture a child's foot in seconds, generate a clear report for parents, and — with their consent — connect the family to the right specialist. A screening system, not a medical diagnosis.</p>
+      <div class="hero-ctas">
+        <a href="mailto:hello@soleshiftkids.org?subject=Screening%20request&body=Hi%20SoleShift%20Kids%20team%2C%0A%0AWe%27d%20like%20to%20request%20a%20foot%20screening.%0A%0ASchool%2Forganization%3A%0ALocation%3A%0APreferred%20dates%3A%0A%0AThanks%21" class="btn btn-primary" data-i18n="cta.request">Request a Screening</a>
+        <a href="#how-it-works" class="btn btn-outline" data-i18n="cta.howItWorks">See How It Works</a>
+      </div>
+      <p class="honesty-line"><svg class="icon" width="16" height="16"><use href="#i-shield"/></svg> <span data-i18n="hero.honesty">Screening only · Parental consent required · Anonymized by default</span></p>
+    </div>
+    <div class="hero-visual reveal" aria-hidden="true">
+      <div class="hero-base"></div>
+      <div class="scan-platform">
+        <svg id="pointCloud" viewBox="0 0 240 320" class="point-cloud"></svg>
+      </div>
+      <div class="float-card fc-1"><span class="fc-label" data-i18n="hero.fc.scanTime">SCAN TIME</span><span class="fc-value">11 s</span></div>
+      <div class="float-card fc-2"><span class="fc-label" data-i18n="hero.fc.footLength">FOOT LENGTH</span><span class="fc-value">21.4 cm</span></div>
+      <div class="float-card fc-3"><span class="fc-label" data-i18n="hero.fc.report">REPORT</span><span class="fc-value" data-i18n="hero.fc.ready">Ready</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<section class="trust-strip reveal">
+  <div class="wrap trust-grid">
+    <div class="trust-stat"><span class="stat-num" data-count="15" data-prefix="&lt; " data-suffix=" s">0 s</span><span class="stat-label" data-i18n="trust.scanPerFoot">Scan per foot</span></div>
+    <div class="trust-stat"><span class="stat-num" data-count="100" data-suffix="%">0%</span><span class="stat-label" data-i18n="trust.parentalConsent">Parental consent</span></div>
+    <div class="trust-stat"><span class="stat-num" data-count="0">0</span><span class="stat-label" data-i18n="trust.diagnosesMade">Diagnoses made</span></div>
+    <div class="trust-stat"><span class="stat-num" data-count="1">0</span><span class="stat-label" data-i18n="trust.reportPerChild">Report per child, automatically</span></div>
+  </div>
+</section>
+
+<!-- Problem -->
+<section class="section band-alt">
+  <div class="wrap two-col">
+    <div class="reveal">
+      <p class="eyebrow" data-i18n="problem.eyebrow">The problem</p>
+      <h2 data-i18n="problem.h2">Cheap to catch early. Expensive to catch late.</h2>
+      <ul class="point-list">
+        <li><svg class="icon" width="18" height="18"><use href="#i-info"/></svg><span data-i18n="problem.li1">Screening is rare and mostly manual.</span></li>
+        <li><svg class="icon" width="18" height="18"><use href="#i-info"/></svg><span data-i18n="problem.li2">Results are subjective and rarely recorded over time.</span></li>
+        <li><svg class="icon" width="18" height="18"><use href="#i-info"/></svg><span data-i18n="problem.li3">Families rarely get referred at the right time.</span></li>
+      </ul>
+    </div>
+    <div class="reveal photo-card problem-photo">
+      <img src="images/bare-feet-walking.jpg" alt="A child walking barefoot on grass" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- What it is / is not -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal center">
+      <p class="eyebrow" data-i18n="scope.eyebrow">Scope, stated plainly</p>
+      <h2 data-i18n="scope.h2">What SoleShift Kids is — and is not.</h2>
+    </div>
+    <div class="two-col is-cards">
+      <div class="card is-card border-teal reveal">
+        <h3 data-i18n="scope.is.title">What it is</h3>
+        <ul class="check-list">
+          <li><svg class="icon" width="18" height="18"><use href="#i-check"/></svg><span data-i18n="scope.is.li1">Digital screening + 3D foot geometry.</span></li>
+          <li><svg class="icon" width="18" height="18"><use href="#i-check"/></svg><span data-i18n="scope.is.li2">An automatic, readable report.</span></li>
+          <li><svg class="icon" width="18" height="18"><use href="#i-check"/></svg><span data-i18n="scope.is.li3">Tracks change over time.</span></li>
+          <li><svg class="icon" width="18" height="18"><use href="#i-check"/></svg><span data-i18n="scope.is.li4">Routes families to partners, with consent.</span></li>
+        </ul>
+      </div>
+      <div class="card is-card border-neutral reveal">
+        <h3 data-i18n="scope.isnot.title">What it is not</h3>
+        <ul class="check-list muted">
+          <li><svg class="icon" width="18" height="18"><use href="#i-info"/></svg><span data-i18n="scope.isnot.li1">Not a medical diagnostic device.</span></li>
+          <li><svg class="icon" width="18" height="18"><use href="#i-info"/></svg><span data-i18n="scope.isnot.li2">Doesn't name conditions or treat.</span></li>
+          <li><svg class="icon" width="18" height="18"><use href="#i-info"/></svg><span data-i18n="scope.isnot.li3">Doesn't manufacture insoles.</span></li>
+          <li><svg class="icon" width="18" height="18"><use href="#i-info"/></svg><span data-i18n="scope.isnot.li4">No data stored without consent.</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="mono-statement reveal" data-i18n="scope.mono">Screening ≠ Diagnosis</p>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section band-alt" id="how-it-works">
+  <div class="wrap">
+    <div class="section-head reveal center">
+      <p class="eyebrow" data-i18n="how.eyebrow">How it works</p>
+      <h2 data-i18n="how.h2">From footplate to specialist in five steps.</h2>
+    </div>
+    <div class="steps-flow">
+      <svg class="steps-line" viewBox="0 0 1000 2" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="0" y1="1" x2="1000" y2="1" stroke="var(--teal)" stroke-width="2" stroke-dasharray="6 8" class="dash-draw"/>
+      </svg>
+      <div class="step-card reveal">
+        <span class="step-num">01</span>
+        <svg class="icon step-icon" width="26" height="26"><use href="#i-scan"/></svg>
+        <h3 data-i18n="how.s1.title">3D scan</h3>
+        <p data-i18n="how.s1.body">The child stands on the plate for a few seconds.</p>
+      </div>
+      <div class="step-card reveal">
+        <span class="step-num">02</span>
+        <svg class="icon step-icon" width="26" height="26"><use href="#i-cpu"/></svg>
+        <h3 data-i18n="how.s2.title">Automated analysis</h3>
+        <p data-i18n="how.s2.body">Length, width, arch height, and shape are extracted.</p>
+      </div>
+      <div class="step-card reveal">
+        <span class="step-num">03</span>
+        <svg class="icon step-icon" width="26" height="26"><use href="#i-doc"/></svg>
+        <h3 data-i18n="how.s3.title">Clear report</h3>
+        <p data-i18n="how.s3.body">Plain-language measurements, no diagnosis.</p>
+      </div>
+      <div class="step-card step-emphasis reveal">
+        <span class="step-num">04</span>
+        <svg class="icon step-icon" width="26" height="26"><use href="#i-user"/></svg>
+        <h3 data-i18n="how.s4.title">Parents receive the results</h3>
+        <p data-i18n="how.s4.body">The family sees it first. Always.</p>
+      </div>
+      <div class="step-card reveal">
+        <span class="step-num">05</span>
+        <svg class="icon step-icon" width="26" height="26"><use href="#i-share"/></svg>
+        <h3 data-i18n="how.s5.title">Optional partner referral</h3>
+        <p data-i18n="how.s5.body">With separate consent, a partner clinic takes it from there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Scanner (dark band) -->
+<section class="section band-dark" id="technology">
+  <div class="wrap">
+    <div class="section-head reveal center on-dark">
+      <p class="eyebrow on-dark" data-i18n="hw.eyebrow">The hardware</p>
+      <h2 data-i18n="hw.h2">Simple hardware. Repeatable results.</h2>
+    </div>
+    <div class="scanner-render reveal" aria-hidden="true">
+      <svg viewBox="0 0 420 300" class="scanner-svg">
+        <defs>
+          <radialGradient id="scanGlow" cx="50%" cy="20%" r="70%">
+            <stop offset="0%" stop-color="#3EC1BC" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#3EC1BC" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="scanBody" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1B4550"/>
+            <stop offset="100%" stop-color="#0D2B36"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="210" cy="60" rx="150" ry="90" fill="url(#scanGlow)"/>
+        <ellipse cx="210" cy="262" rx="150" ry="18" fill="#000" opacity="0.25"/>
+        <rect x="60" y="70" width="300" height="180" rx="22" fill="url(#scanBody)" stroke="#2C5560" stroke-width="1.5"/>
+        <circle cx="95" cy="100" r="7" fill="#0D2B36" stroke="#3EC1BC" stroke-width="1.5"/>
+        <circle cx="95" cy="100" r="2.4" fill="#3EC1BC"/>
+        <circle cx="325" cy="100" r="7" fill="#0D2B36" stroke="#3EC1BC" stroke-width="1.5"/>
+        <circle cx="325" cy="100" r="2.4" fill="#3EC1BC"/>
+        <circle cx="210" cy="90" r="7" fill="#0D2B36" stroke="#3EC1BC" stroke-width="1.5"/>
+        <circle cx="210" cy="90" r="2.4" fill="#3EC1BC"/>
+        <rect x="90" y="130" width="240" height="95" rx="14" fill="#0A222C" stroke="#274A54" stroke-width="1.5"/>
+        <ellipse cx="210" cy="177" rx="95" ry="38" fill="none" stroke="#3EC1BC" stroke-width="1.2" stroke-dasharray="4 5" opacity="0.6"/>
+        <path d="M197 200c-6 0-11-4-11-13 0-6 2-9 2-16 0-7-3-10-3-19 0-7 4-13 12-13s10 8 11 15c1 7 4 9 8 13 5 5 9 8 9 16 0 6-4 10-11 10-7 0-6-4-14-4Z"
+              transform="translate(3,-25) scale(1.15)" fill="none" stroke="#4CA79F" stroke-width="1.6" opacity="0.9"/>
+        <circle cx="120" cy="145" r="3" fill="#E39A5C"/>
+        <text x="132" y="149" fill="#B7CBD3" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="1">SCANNING</text>
+        <line x1="90" y1="132" x2="330" y2="132" stroke="#3EC1BC" stroke-width="2" class="scan-sweep" opacity="0.8">
+          <animate attributeName="y1" values="132;223;132" dur="3.6s" repeatCount="indefinite"/>
+          <animate attributeName="y2" values="132;223;132" dur="3.6s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3.6s" repeatCount="indefinite"/>
+        </line>
+      </svg>
+    </div>
+    <div class="chip-row reveal">
+      <span class="chip" data-i18n="hw.chip1">Multi-camera capture</span>
+      <span class="chip" data-i18n="hw.chip2">Controlled lighting</span>
+      <span class="chip" data-i18n="hw.chip3">Fixed foot position</span>
+      <span class="chip" data-i18n="hw.chip4">Point cloud reconstruction</span>
+      <span class="chip" data-i18n="hw.chip5">Stable, non-slip footplate</span>
+      <span class="chip" data-i18n="hw.chip6">No sharp edges</span>
+    </div>
+    <p class="scanner-note reveal" data-i18n="hw.note">Built from accessible components so it can be rebuilt and deployed in a school or a rural clinic, not only in a lab.</p>
+  </div>
+</section>
+
+<!-- Sample report -->
+<section class="section band-alt" id="sample-report">
+  <div class="wrap two-col report-layout">
+    <div class="reveal photo-card report-photo">
+      <img src="images/feet-socks.jpg" alt="A child's feet, ready to be measured" loading="lazy">
+    </div>
+    <div class="reveal report-side">
+      <p class="eyebrow" data-i18n="report.eyebrow">Sample report</p>
+      <h2 data-i18n="report.h2">A report a parent can actually read.</h2>
+      <div class="report-card">
+        <div class="report-top">
+          <span class="mono">SSK-0142</span>
+          <span class="mono report-date" data-i18n="report.sampleDate">Sample date</span>
+        </div>
+        <div class="report-body">
+          <div class="report-foot" aria-hidden="true">
+            <svg viewBox="0 0 100 200" width="90"><path d="M50 190c-15 0-27-8-27-26 0-14 5-20 5-35 0-16-8-22-8-42C20 60 32 10 50 10s30 50 30 77c0 20-8 26-8 42 0 15 5 21 5 35 0 18-12 26-27 26Z" fill="none" stroke="#0C6E77" stroke-width="2"/><ellipse cx="50" cy="95" rx="10" ry="26" fill="#DCEAE8" stroke="#4CA79F" stroke-width="1.5"/></svg>
+          </div>
+          <ul class="report-metrics">
+            <li><span data-i18n="report.m.length">Foot length</span><span class="mono">21.4 cm</span></li>
+            <li><span data-i18n="report.m.width">Foot width</span><span class="mono">8.2 cm</span></li>
+            <li><span data-i18n="report.m.arch">Arch height</span><span class="mono">1.9 cm</span></li>
+            <li><span data-i18n="report.m.archIndex">Arch index</span><span class="mono">0.24</span></li>
+            <li><span data-i18n="report.m.asym">Asymmetry</span><span class="mono">3.1 %</span></li>
+            <li><span data-i18n="report.m.fit">Shoe fit</span><span class="mono">Size 33</span></li>
+          </ul>
+        </div>
+        <div class="report-status status-warn">
+          <svg class="icon" width="18" height="18"><use href="#i-info"/></svg>
+          <div><strong data-i18n="report.status.title">Suggested next step: specialist consultation</strong><p data-i18n="report.status.body">Not a diagnosis — a pediatric orthopedist can confirm whether anything is needed.</p></div>
+        </div>
+      </div>
+      <div class="report-status-mini status-good">
+        <svg class="icon" width="18" height="18"><use href="#i-check"/></svg>
+        <span data-i18n="report.status.good">Within typical range — no action suggested.</span>
+      </div>
+      <p class="note-inline"><svg class="icon" width="16" height="16"><use href="#i-info"/></svg> <span data-i18n="report.note">A rule-based measurement pipeline — described honestly, not sold as "diagnostic AI".</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- Privacy -->
+<section class="section band-alt">
+  <div class="wrap two-col privacy-layout">
+    <div class="reveal photo-card photo-duo privacy-photo">
+      <img src="images/parent-hands.jpg" alt="A parent's hand holding a child's hand" loading="lazy">
+    </div>
+    <div class="reveal">
+      <p class="eyebrow" data-i18n="privacy.eyebrow">Privacy and consent</p>
+      <h2 data-i18n="privacy.h2">Children's data, handled carefully.</h2>
+      <ul class="privacy-list">
+        <li><svg class="icon" width="20" height="20"><use href="#i-shield"/></svg><div><strong data-i18n="privacy.li1.title">Consent first</strong><span data-i18n="privacy.li1.body">No scan without written parental consent.</span></div></li>
+        <li><svg class="icon" width="20" height="20"><use href="#i-id"/></svg><div><strong data-i18n="privacy.li2.title">Anonymized by default</strong><span data-i18n="privacy.li2.body">Stored under an ID, not a name.</span></div></li>
+        <li><svg class="icon" width="20" height="20"><use href="#i-lock"/></svg><div><strong data-i18n="privacy.li3.title">Second consent to share</strong><span data-i18n="privacy.li3.body">A separate permission to forward a report.</span></div></li>
+        <li><svg class="icon" width="20" height="20"><use href="#i-undo"/></svg><div><strong data-i18n="privacy.li4.title">Parents can withdraw</strong><span data-i18n="privacy.li4.body">Consent revoked, data deleted, any time.</span></div></li>
+      </ul>
+      <a href="#" class="download-item reveal"><svg class="icon" width="20" height="20"><use href="#i-doc"/></svg> <span data-i18n="privacy.download">Parental consent form (PDF)</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Three audiences -->
+<section class="section" id="for-schools">
+  <div class="wrap">
+    <div class="section-head reveal center">
+      <p class="eyebrow" data-i18n="aud.eyebrow">Who this is for</p>
+      <h2 data-i18n="aud.h2">Three audiences, one system.</h2>
+    </div>
+    <div class="card-grid three">
+      <div class="card audience-card reveal">
+        <svg class="audience-illus" viewBox="0 0 96 72" aria-hidden="true">
+          <path d="M8 32 48 10l40 22" fill="none" stroke="#0C6E77" stroke-width="2.2" stroke-linejoin="round"/>
+          <rect x="16" y="32" width="64" height="30" rx="2" fill="#DCEAE8" stroke="#0C6E77" stroke-width="2"/>
+          <rect x="36" y="15" width="10" height="10" fill="#DCEAE8" stroke="#0C6E77" stroke-width="1.8"/>
+          <rect x="26" y="42" width="10" height="12" fill="#FCFDFD" stroke="#0C6E77" stroke-width="1.6"/>
+          <rect x="42" y="42" width="10" height="12" fill="#FCFDFD" stroke="#0C6E77" stroke-width="1.6"/>
+          <rect x="58" y="42" width="10" height="12" fill="#FCFDFD" stroke="#0C6E77" stroke-width="1.6"/>
+          <circle cx="48" cy="8" r="2.4" fill="#E39A5C"/>
+        </svg>
+        <h3 data-i18n="aud.schools.title">For schools</h3>
+        <p data-i18n="aud.schools.body">A screening day with minimal disruption. We bring the equipment, the consent forms, and the reports.</p>
+        <a href="mailto:hello@soleshiftkids.org?subject=School%20screening%20day%20request&body=Hi%20SoleShift%20Kids%20team%2C%0A%0AWe%27d%20like%20to%20host%20a%20screening%20day%20at%20our%20school.%0A%0ASchool%20name%3A%0AApprox.%20number%20of%20students%3A%0APreferred%20dates%3A%0A%0AThanks%21" class="btn btn-outline btn-sm" data-i18n="cta.hostDay">Host a screening day</a>
+      </div>
+      <div class="card audience-card reveal">
+        <svg class="audience-illus" viewBox="0 0 96 72" aria-hidden="true">
+          <rect x="14" y="20" width="68" height="42" rx="3" fill="#DCEAE8" stroke="#0C6E77" stroke-width="2"/>
+          <path d="M48 30v22M37 41h22" stroke="#0C6E77" stroke-width="3" stroke-linecap="round"/>
+          <rect x="22" y="28" width="10" height="10" fill="#FCFDFD" stroke="#0C6E77" stroke-width="1.5"/>
+          <rect x="64" y="28" width="10" height="10" fill="#FCFDFD" stroke="#0C6E77" stroke-width="1.5"/>
+          <rect x="22" y="44" width="10" height="10" fill="#FCFDFD" stroke="#0C6E77" stroke-width="1.5"/>
+          <rect x="64" y="44" width="10" height="10" fill="#FCFDFD" stroke="#0C6E77" stroke-width="1.5"/>
+          <circle cx="48" cy="14" r="3" fill="#E39A5C"/>
+        </svg>
+        <h3 data-i18n="aud.clinics.title">For clinics and manufacturers</h3>
+        <p data-i18n="aud.clinics.body">Receive structured, consented digital foot data instead of hand-measured guesses.</p>
+        <a href="mailto:hello@soleshiftkids.org?subject=Partnership%20inquiry&body=Hi%20SoleShift%20Kids%20team%2C%0A%0AWe%27re%20interested%20in%20partnering%20with%20SoleShift%20Kids.%0A%0AOrganization%3A%0AType%20(clinic%20%2F%20manufacturer%20%2F%20other)%3A%0A%0AThanks%21" class="btn btn-outline btn-sm" data-i18n="cta.becomePartner">Become a partner</a>
+      </div>
+      <div class="card audience-card reveal">
+        <svg class="audience-illus" viewBox="0 0 96 72" aria-hidden="true">
+          <circle cx="34" cy="24" r="10" fill="#DCEAE8" stroke="#0C6E77" stroke-width="2"/>
+          <path d="M18 58c0-12 7.2-19 16-19s16 7 16 19" fill="#DCEAE8" stroke="#0C6E77" stroke-width="2"/>
+          <circle cx="66" cy="34" r="7" fill="#FCFDFD" stroke="#0C6E77" stroke-width="2"/>
+          <path d="M54 58c0-9 5.4-14.5 12-14.5S78 49 78 58" fill="#FCFDFD" stroke="#0C6E77" stroke-width="2"/>
+          <path d="M46 50c2.5-2 5.5-2 8 0" fill="none" stroke="#E39A5C" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h3 data-i18n="aud.parents.title">For parents</h3>
+        <p data-i18n="aud.parents.body">Understand your child's foot growth, and know when it's worth seeing a specialist.</p>
+        <a href="#sample-report" class="btn btn-outline btn-sm" data-i18n="cta.sampleReport">See a sample report</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Learn More -->
+<section class="section band-alt" id="learn-more">
+  <div class="wrap narrow">
+    <div class="section-head reveal center">
+      <p class="eyebrow" data-i18n="learn.eyebrow">Learn more</p>
+      <h2 data-i18n="learn.h2">The project, in full.</h2>
+      <p class="section-sub" data-i18n="learn.intro">A closer look at the concept, the plan, and the people behind SoleShift Kids.</p>
+    </div>
+    <div class="accordion">
+      <div class="acc-item reveal">
+        <button class="acc-trigger"><span data-i18n="learn.concept.title">The concept</span><svg class="icon acc-icon" width="18" height="18"><use href="#i-plus"/></svg></button>
+        <div class="acc-panel">
+          <p data-i18n="learn.concept.body">SoleShift Kids is an engineering and public-health project that uses 3D scanning, automated analysis, and data to assess the shape of a child's foot. It helps schools and medical institutions get digital foot data quickly, and flags cases where a specialist visit is worth considering.</p>
+          <p data-i18n="learn.concept.body2">It is not a medical diagnostic system, and it does not manufacture insoles. With parental consent, results can be passed to partner clinics or manufacturers, who decide independently on next steps.</p>
+        </div>
+      </div>
+      <div class="acc-item reveal">
+        <button class="acc-trigger"><span data-i18n="learn.impact.title">Impact — how we'll measure it</span><svg class="icon acc-icon" width="18" height="18"><use href="#i-plus"/></svg></button>
+        <div class="acc-panel">
+          <p data-i18n="learn.impact.intro">We track what actually happened, not projections:</p>
+          <ul class="plain-list">
+            <li data-i18n="learn.impact.li1">Children scanned</li>
+            <li data-i18n="learn.impact.li2">Digital reports generated</li>
+            <li data-i18n="learn.impact.li3">Children referred for a specialist consultation</li>
+            <li data-i18n="learn.impact.li4">Schools reached</li>
+            <li data-i18n="learn.impact.li5">Rural medical centers involved</li>
+            <li data-i18n="learn.impact.li6">Specialists trained</li>
+            <li data-i18n="learn.impact.li7">Screenings completed</li>
+            <li data-i18n="learn.impact.li8">Average processing time per scan</li>
+          </ul>
+          <p class="panel-note" data-i18n="learn.impact.note">Numbers appear on this site only once they're real.</p>
+        </div>
+      </div>
+      <div class="acc-item reveal">
+        <button class="acc-trigger"><span data-i18n="learn.partners.title">Who this connects to</span><svg class="icon acc-icon" width="18" height="18"><use href="#i-plus"/></svg></button>
+        <div class="acc-panel">
+          <p data-i18n="learn.partners.intro">A report can be forwarded to these organizations, always with a separate parental consent — they decide independently what, if anything, to offer the family.</p>
+          <div class="eco-groups">
+            <span class="eco-tag"><svg class="icon" width="16" height="16"><use href="#i-school"/></svg><span data-i18n="learn.partners.tag1">Schools</span></span>
+            <span class="eco-tag"><svg class="icon" width="16" height="16"><use href="#i-heart"/></svg><span data-i18n="learn.partners.tag2">Children's polyclinics</span></span>
+            <span class="eco-tag"><svg class="icon" width="16" height="16"><use href="#i-clinic"/></svg><span data-i18n="learn.partners.tag3">Rural medical centers</span></span>
+            <span class="eco-tag"><svg class="icon" width="16" height="16"><use href="#i-heart"/></svg><span data-i18n="learn.partners.tag4">Rehabilitation centers</span></span>
+            <span class="eco-tag"><svg class="icon" width="16" height="16"><use href="#i-clinic"/></svg><span data-i18n="learn.partners.tag5">Orthopedic clinics</span></span>
+            <span class="eco-tag"><svg class="icon" width="16" height="16"><use href="#i-foot"/></svg><span data-i18n="learn.partners.tag6">Insole manufacturers</span></span>
+            <span class="eco-tag"><svg class="icon" width="16" height="16"><use href="#i-foot"/></svg><span data-i18n="learn.partners.tag7">Children's footwear manufacturers</span></span>
+            <span class="eco-tag"><svg class="icon" width="16" height="16"><use href="#i-node"/></svg><span data-i18n="learn.partners.tag8">Ministry of Science and Education</span></span>
+            <span class="eco-tag"><svg class="icon" width="16" height="16"><use href="#i-node"/></svg><span data-i18n="learn.partners.tag9">Ministry of Health</span></span>
+            <span class="eco-tag"><svg class="icon" width="16" height="16"><use href="#i-node"/></svg><span data-i18n="learn.partners.tag10">TABIB</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="acc-item reveal">
+        <button class="acc-trigger"><span data-i18n="learn.roadmap.title">Roadmap</span><svg class="icon acc-icon" width="18" height="18"><use href="#i-plus"/></svg></button>
+        <div class="acc-panel">
+          <ul class="plain-list">
+            <li data-i18n="learn.roadmap.li1">01 · Prototype — hardware and analysis pipeline, in active development.</li>
+            <li data-i18n="learn.roadmap.li2">02 · School pilot — one full screening day at one school, start to finish.</li>
+            <li data-i18n="learn.roadmap.li3">03 · Clinical partners — consented referral to orthopedic clinics and manufacturers.</li>
+            <li data-i18n="learn.roadmap.li4">04 · National rollout — more schools, more regions, more rural medical centers.</li>
+          </ul>
+          <p class="panel-note" data-i18n="learn.roadmap.note">Each stage only starts once the previous one is real, not planned.</p>
+        </div>
+      </div>
+      <div class="acc-item reveal">
+        <button class="acc-trigger"><span data-i18n="learn.team.title">Team & roles</span><svg class="icon acc-icon" width="18" height="18"><use href="#i-plus"/></svg></button>
+        <div class="acc-panel">
+          <ul class="plain-list">
+            <li data-i18n="learn.team.li1">Founder &amp; Project Lead — overall direction, pilot, and partnerships.</li>
+            <li data-i18n="learn.team.li2">Hardware Lead — scanner design and build.</li>
+            <li data-i18n="learn.team.li3">Software &amp; AI Lead — analysis pipeline and reporting.</li>
+            <li data-i18n="learn.team.li4">Web &amp; Design Lead — site, reports, and documentation.</li>
+          </ul>
+          <p class="panel-note" data-i18n="learn.team.note">Names will be added as the team is finalized.</p>
+        </div>
+      </div>
+      <div class="acc-item reveal">
+        <button class="acc-trigger"><span data-i18n="learn.bounds.title">Our boundaries</span><svg class="icon acc-icon" width="18" height="18"><use href="#i-plus"/></svg></button>
+        <div class="acc-panel">
+          <ul class="plain-list">
+            <li data-i18n="learn.bounds.li1">Screening, not diagnosis — the report suggests a specialist visit, it never names a condition.</li>
+            <li data-i18n="learn.bounds.li2">Parental consent, always — no scan without it, no sharing without a second, separate consent.</li>
+            <li data-i18n="learn.bounds.li3">Data protected — anonymized by default, no child's face published, deletable on request.</li>
+            <li data-i18n="learn.bounds.li4">Real numbers only — every figure on this site is something that actually happened.</li>
+            <li data-i18n="learn.bounds.li5">Honest about the AI — if it's a rule-based measurement pipeline, that's what we call it.</li>
+            <li data-i18n="learn.bounds.li6">Partners treat, we don't — SoleShift Kids builds the referral infrastructure, not the treatment.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap narrow">
+    <div class="section-head reveal center">
+      <p class="eyebrow" data-i18n="faq.eyebrow">FAQ</p>
+      <h2 data-i18n="faq.h2">Questions, answered plainly.</h2>
+    </div>
+    <div class="accordion">
+      <div class="acc-item reveal">
+        <button class="acc-trigger"><span data-i18n="faq.q1">Is SoleShift Kids a medical device?</span><svg class="icon acc-icon" width="18" height="18"><use href="#i-plus"/></svg></button>
+        <div class="acc-panel"><p data-i18n="faq.a1">No. It's a screening and referral system — it doesn't diagnose, treat, or replace a specialist.</p></div>
+      </div>
+      <div class="acc-item reveal">
+        <button class="acc-trigger"><span data-i18n="faq.q2">Who sees my child's data?</span><svg class="icon acc-icon" width="18" height="18"><use href="#i-plus"/></svg></button>
+        <div class="acc-panel"><p data-i18n="faq.a2">The parent, first and always. A partner only sees a report with a separate, explicit consent.</p></div>
+      </div>
+      <div class="acc-item reveal">
+        <button class="acc-trigger"><span data-i18n="faq.q3">Can I refuse the screening, or delete the data afterwards?</span><svg class="icon acc-icon" width="18" height="18"><use href="#i-plus"/></svg></button>
+        <div class="acc-panel"><p data-i18n="faq.a3">Yes, at any time. Consent can be withdrawn and data deleted on request.</p></div>
+      </div>
+      <div class="acc-item reveal">
+        <button class="acc-trigger"><span data-i18n="faq.q4">Do you make or sell insoles?</span><svg class="icon acc-icon" width="18" height="18"><use href="#i-plus"/></svg></button>
+        <div class="acc-panel"><p data-i18n="faq.a4">No. Manufacturing and treatment are handled entirely by our partner clinics and manufacturers.</p></div>
+      </div>
+    </div>
+    <p class="disclaimer-band reveal" data-i18n="faq.disclaimer">SoleShift Kids is an early screening and referral system. It does not provide medical diagnosis or treatment, and does not replace consultation with a qualified specialist.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- Final CTA + Footer -->
+<footer class="footer" id="contact">
+  <div class="footer-cta-bg" aria-hidden="true"><img src="images/toddler-adult-grass.jpg" alt="" loading="lazy"></div>
+  <div class="wrap footer-cta reveal">
+    <h2 data-i18n="footercta.h2">Measure early. Refer early. Nothing more, nothing less.</h2>
+    <div class="hero-ctas center">
+      <a href="mailto:hello@soleshiftkids.org?subject=Screening%20request&body=Hi%20SoleShift%20Kids%20team%2C%0A%0AWe%27d%20like%20to%20request%20a%20foot%20screening.%0A%0ASchool%2Forganization%3A%0ALocation%3A%0APreferred%20dates%3A%0A%0AThanks%21" class="btn btn-primary" data-i18n="cta.request">Request a Screening</a>
+      <a href="mailto:hello@soleshiftkids.org?subject=Partnership%20inquiry&body=Hi%20SoleShift%20Kids%20team%2C%0A%0AWe%27re%20interested%20in%20partnering%20with%20SoleShift%20Kids.%0A%0AOrganization%3A%0AType%20(clinic%20%2F%20manufacturer%20%2F%20other)%3A%0A%0AThanks%21" class="btn btn-ghost" data-i18n="cta.partnerWithUs">Partner with us</a>
+    </div>
+  </div>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a href="#top" class="wordmark on-dark">SoleShift <span>Kids</span></a>
+      <p data-i18n="footer.tagline">Early digital foot screening for children — not a medical diagnostic service.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.col.platform">Platform</h4>
+      <a href="#how-it-works" data-i18n="nav.how">How It Works</a>
+      <a href="#technology" data-i18n="nav.tech">Technology</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.col.forSchools">For Schools</h4>
+      <a href="#for-schools" data-i18n="cta.hostDay">Host a screening day</a>
+      <a href="#" data-i18n="footer.link.consentForm">Consent form (PDF)</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.col.forPartners">For Partners</h4>
+      <a href="#learn-more" data-i18n="footer.link.whoWeWorkWith">Who we work with</a>
+      <a href="mailto:hello@soleshiftkids.org?subject=Partnership%20inquiry&body=Hi%20SoleShift%20Kids%20team%2C%0A%0AWe%27re%20interested%20in%20partnering%20with%20SoleShift%20Kids.%0A%0AOrganization%3A%0AType%20(clinic%20%2F%20manufacturer%20%2F%20other)%3A%0A%0AThanks%21" data-i18n="cta.becomePartner">Become a partner</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.col.about">About</h4>
+      <a href="#learn-more" data-i18n="nav.learn">Learn More</a>
+      <a href="#" data-i18n="footer.link.privacyPolicy">Privacy policy</a>
+      <a href="#" data-i18n="footer.link.termsOfUse">Terms of use</a>
+    </div>
+    <div class="footer-col footer-signup">
+      <h4 data-i18n="footer.col.stayUpdated">Stay updated</h4>
+      <form class="signup-form" onsubmit="return false;">
+        <input type="email" placeholder="Email address" aria-label="Email address" required data-i18n-placeholder="footer.emailPlaceholder" data-i18n-aria="footer.emailPlaceholder">
+        <button type="submit" aria-label="Subscribe" data-i18n-aria="a11y.subscribe"><svg class="icon" width="16" height="16"><use href="#i-mail"/></svg></button>
+      </form>
+      <a class="footer-email" href="mailto:hello@soleshiftkids.org">hello@soleshiftkids.org</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span data-i18n="footer.bottom">SoleShift Kids — early digital foot screening. Not a medical diagnostic service.</span>
+    <div class="lang-switch footer-lang">
+      <button type="button" class="lang-option" data-lang="en">EN</button>
+      <button type="button" class="lang-option" data-lang="ru">RU</button>
+      <button type="button" class="lang-option" data-lang="az">AZ</button>
+    </div>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
