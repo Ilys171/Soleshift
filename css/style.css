@@ -1274,7 +1274,7 @@ ul {
 
 .build-layout {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
   border: 1px solid var(--border);
   background: var(--surface);
 }
@@ -1288,15 +1288,16 @@ ul {
 .log-feature img {
   display: block;
   width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
+  height: clamp(420px, 72vh, 680px);
+  object-fit: contain; /* whole photo visible, no cropping */
+  object-position: 50% 50% !important; /* overrides the old inline crop positions */
   background: var(--bg-alt);
 }
 .log-feature figcaption {
   margin-top: auto;
   padding: 10px 14px;
   border-top: 1px solid var(--border);
-  font-size: 13.5px;
+  font-size: 14px;
   line-height: 1.45;
   color: var(--text-secondary);
 }
@@ -1327,10 +1328,10 @@ ul {
   flex: 1;
   width: 100%;
   display: grid;
-  grid-template-columns: 96px 1fr;
+  grid-template-columns: 88px 1fr;
   gap: 12px;
   align-items: center;
-  padding: 8px 14px;
+  padding: 6px 14px;
   background: none;
   color: inherit;
   font: inherit;
@@ -1356,8 +1357,8 @@ ul {
 }
 .log-thumb {
   display: block;
-  width: 96px;
-  height: 64px;
+  width: 88px;
+  height: 60px;
   object-fit: cover;
   border: 1px solid var(--border);
   background: var(--bg-alt);
@@ -1375,11 +1376,23 @@ ul {
   color: var(--teal);
 }
 .log-text {
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.4;
   color: var(--text-secondary);
 }
 
+@media (max-width: 980px) {
+  .build-layout {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+  .log-row {
+    grid-template-columns: 72px 1fr;
+  }
+  .log-thumb {
+    width: 72px;
+    height: 52px;
+  }
+}
 @media (max-width: 860px) {
   .spec-strip {
     grid-template-columns: repeat(2, 1fr);
@@ -1398,10 +1411,11 @@ ul {
     border-bottom: 1px solid var(--border);
   }
   .log-feature img {
-    aspect-ratio: 4/3;
+    height: min(70vh, 480px);
   }
   .log-row {
     grid-template-columns: 80px 1fr;
+    padding: 8px 14px;
   }
   .log-thumb {
     width: 80px;
