@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css?v=3" />
+    <link rel="stylesheet" href="css/style.css?v=4" />
   </head>
   <body>
     <!-- Icon sprite -->
@@ -415,6 +415,21 @@
     <header class="nav" id="nav">
       <div class="wrap nav-inner">
         <a href="#top" class="wordmark">SoleShift <span>Kids</span></a>
+        <nav
+          class="nav-links"
+          aria-label="Page sections"
+          data-i18n-aria="nav.sections"
+        >
+          <a href="#how-it-works" data-i18n="nav.method">Methodology</a>
+          <a href="#build-log" data-i18n="nav.prototype">Prototype</a>
+          <a href="#in-the-field" data-i18n="nav.photos">Photos</a>
+          <a href="#sample-report" data-i18n="nav.report">Report</a>
+          <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
+          <a href="#for-schools" data-i18n="nav.schools">Schools</a>
+          <a href="#learn-more" data-i18n="nav.about">About</a>
+          <a href="#team" data-i18n="nav.team">Team</a>
+          <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        </nav>
         <div class="nav-actions">
           <div class="lang-switch" data-lang-switch>
             <button
@@ -466,32 +481,26 @@
           aria-expanded="false"
           data-i18n-aria="a11y.toggleMenu"
         >
-          <span></span><span></span><span></span>
+          <span class="burger-lines" aria-hidden="true"
+            ><span></span><span></span><span></span></span
+          ><span class="burger-label" data-i18n="nav.menu">Menu</span>
         </button>
       </div>
-      <nav
-        class="section-nav"
-        aria-label="Page sections"
-        data-i18n-aria="nav.sections"
-      >
-        <div class="wrap section-nav-inner">
-          <a href="#how-it-works" data-i18n="nav.method">Methodology</a>
-          <a href="#build-log" data-i18n="nav.prototype">Prototype</a>
-          <a href="#in-the-field" data-i18n="nav.photos">Photos</a>
-          <a href="#sample-report" data-i18n="nav.report">Sample report</a>
-          <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
-          <a href="#for-schools" data-i18n="nav.schools">For Schools</a>
-          <a href="#learn-more" data-i18n="nav.about">About</a>
-          <a href="#team" data-i18n="nav.team">Team</a>
-          <a href="#faq" data-i18n="nav.faq">FAQ</a>
-        </div>
-      </nav>
       <div class="nav-mobile" id="navMobile">
         <div class="nav-mobile-lang">
           <button type="button" class="lang-option" data-lang="en">EN</button>
           <button type="button" class="lang-option" data-lang="ru">RU</button>
           <button type="button" class="lang-option" data-lang="az">AZ</button>
         </div>
+        <a href="#how-it-works" data-i18n="nav.method">Methodology</a>
+        <a href="#build-log" data-i18n="nav.prototype">Prototype</a>
+        <a href="#in-the-field" data-i18n="nav.photos">Photos</a>
+        <a href="#sample-report" data-i18n="nav.report">Report</a>
+        <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
+        <a href="#for-schools" data-i18n="nav.schools">Schools</a>
+        <a href="#learn-more" data-i18n="nav.about">About</a>
+        <a href="#team" data-i18n="nav.team">Team</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
         <a
           href="mailto:hello@soleshiftkids.org?subject=Screening%20request&body=Hi%20SoleShift%20Kids%20team%2C%0A%0AWe%27d%20like%20to%20request%20a%20foot%20screening.%0A%0ASchool%2Forganization%3A%0ALocation%3A%0APreferred%20dates%3A%0A%0AThanks%21"
           class="btn btn-primary btn-sm"
@@ -1150,132 +1159,136 @@
               ><span>F01–F05</span>
             </div>
             <p class="field-note" data-i18n="field.mentor.body">Dr. Aydin Gahramanov — Doctor of Medical Sciences, chair of AO Trauma Azerbaijan and SICOT's national representative for Azerbaijan — reviewed the prototype at the Research Institute of Traumatology and Orthopedics and approved the project.</p>
-            <div class="field-grid">
-              <figure class="field-item" style="--ar: 0.75">
-                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-mentor-01">
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcset="images/field-mentor-01-800.webp 600w, images/field-mentor-01.webp 960w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                    />
-                    <img
-                      src="images/field-mentor-01-800.jpg"
-                      srcset="images/field-mentor-01-800.jpg 600w, images/field-mentor-01.jpg 960w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                      width="600"
-                      height="800"
-                      loading="lazy"
-                      decoding="async"
-                      alt="Two team members holding the prototype outside the Research Institute of Traumatology and Orthopedics"
-                      data-i18n-alt="field.alt.f01"
-                  /></picture>
-                </button>
-                <figcaption>
-                  <b>F01</b
-                  ><span data-i18n="field.f01">Arriving at the Research Institute of Traumatology and Orthopedics with the prototype.</span>
-                </figcaption>
-              </figure>
-              <figure class="field-item" style="--ar: 0.75">
-                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-mentor-02">
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcset="images/field-mentor-02-800.webp 600w, images/field-mentor-02.webp 960w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                    />
-                    <img
-                      src="images/field-mentor-02-800.jpg"
-                      srcset="images/field-mentor-02-800.jpg 600w, images/field-mentor-02.jpg 960w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                      width="600"
-                      height="800"
-                      loading="lazy"
-                      decoding="async"
-                      alt="Two team members with the prototype in front of the institute entrance"
-                      data-i18n-alt="field.alt.f02"
-                  /></picture>
-                </button>
-                <figcaption>
-                  <b>F02</b
-                  ><span data-i18n="field.f02">Outside the institute, before the meeting.</span>
-                </figcaption>
-              </figure>
-              <figure class="field-item" style="--ar: 0.75">
-                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-mentor-03">
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcset="images/field-mentor-03-800.webp 600w, images/field-mentor-03.webp 960w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                    />
-                    <img
-                      src="images/field-mentor-03-800.jpg"
-                      srcset="images/field-mentor-03-800.jpg 600w, images/field-mentor-03.jpg 960w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                      width="600"
-                      height="800"
-                      loading="lazy"
-                      decoding="async"
-                      alt="A team member holding the prototype beside Dr. Aydin Gahramanov in his office"
-                      data-i18n-alt="field.alt.f03"
-                  /></picture>
-                </button>
-                <figcaption>
-                  <b>F03</b
-                  ><span data-i18n="field.f03">With Dr. Gahramanov, prototype in hand.</span>
-                </figcaption>
-              </figure>
-              <figure class="field-item" style="--ar: 1.3333">
-                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-mentor-04">
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcset="images/field-mentor-04-800.webp 800w, images/field-mentor-04.webp 1280w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                    />
-                    <img
-                      src="images/field-mentor-04-800.jpg"
-                      srcset="images/field-mentor-04-800.jpg 800w, images/field-mentor-04.jpg 1280w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                      width="800"
-                      height="600"
-                      loading="lazy"
-                      decoding="async"
-                      alt="A team member showing the prototype to Dr. Aydin Gahramanov at his desk"
-                      data-i18n-alt="field.alt.f04"
-                  /></picture>
-                </button>
-                <figcaption>
-                  <b>F04</b
-                  ><span data-i18n="field.f04">Walking Dr. Gahramanov through how the pressure plate works.</span>
-                </figcaption>
-              </figure>
-              <figure class="field-item" style="--ar: 0.8375">
-                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-mentor-05">
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcset="images/field-mentor-05-800.webp 670w, images/field-mentor-05.webp 1072w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                    />
-                    <img
-                      src="images/field-mentor-05-800.jpg"
-                      srcset="images/field-mentor-05-800.jpg 670w, images/field-mentor-05.jpg 1072w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                      width="670"
-                      height="800"
-                      loading="lazy"
-                      decoding="async"
-                      alt="Two team members standing with Dr. Aydin Gahramanov in his office"
-                      data-i18n-alt="field.alt.f05"
-                  /></picture>
-                </button>
-                <figcaption>
-                  <b>F05</b
-                  ><span data-i18n="field.f05">The team with Dr. Gahramanov after he approved the project.</span>
-                </figcaption>
-              </figure>
+            <div class="field-stack">
+              <div class="field-row">
+                <figure class="field-item" style="--ar: 0.75">
+                  <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-mentor-01">
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcset="images/field-mentor-01-800.webp 600w, images/field-mentor-01.webp 960w"
+                        sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 1200px) 34vw, 400px"
+                      />
+                      <img
+                        src="images/field-mentor-01-800.jpg"
+                        srcset="images/field-mentor-01-800.jpg 600w, images/field-mentor-01.jpg 960w"
+                        sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 1200px) 34vw, 400px"
+                        width="600"
+                        height="800"
+                        loading="lazy"
+                        decoding="async"
+                        alt="Two team members holding the prototype outside the Research Institute of Traumatology and Orthopedics"
+                        data-i18n-alt="field.alt.f01"
+                    /></picture>
+                  </button>
+                  <figcaption>
+                    <b>F01</b
+                    ><span data-i18n="field.f01">Arriving at the Research Institute of Traumatology and Orthopedics with the prototype.</span>
+                  </figcaption>
+                </figure>
+                <figure class="field-item" style="--ar: 0.75">
+                  <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-mentor-02">
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcset="images/field-mentor-02-800.webp 600w, images/field-mentor-02.webp 960w"
+                        sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 1200px) 34vw, 400px"
+                      />
+                      <img
+                        src="images/field-mentor-02-800.jpg"
+                        srcset="images/field-mentor-02-800.jpg 600w, images/field-mentor-02.jpg 960w"
+                        sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 1200px) 34vw, 400px"
+                        width="600"
+                        height="800"
+                        loading="lazy"
+                        decoding="async"
+                        alt="Two team members with the prototype in front of the institute entrance"
+                        data-i18n-alt="field.alt.f02"
+                    /></picture>
+                  </button>
+                  <figcaption>
+                    <b>F02</b
+                    ><span data-i18n="field.f02">Outside the institute, before the meeting.</span>
+                  </figcaption>
+                </figure>
+                <figure class="field-item" style="--ar: 0.75">
+                  <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-mentor-03">
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcset="images/field-mentor-03-800.webp 600w, images/field-mentor-03.webp 960w"
+                        sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 1200px) 34vw, 400px"
+                      />
+                      <img
+                        src="images/field-mentor-03-800.jpg"
+                        srcset="images/field-mentor-03-800.jpg 600w, images/field-mentor-03.jpg 960w"
+                        sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 1200px) 34vw, 400px"
+                        width="600"
+                        height="800"
+                        loading="lazy"
+                        decoding="async"
+                        alt="A team member holding the prototype beside Dr. Aydin Gahramanov in his office"
+                        data-i18n-alt="field.alt.f03"
+                    /></picture>
+                  </button>
+                  <figcaption>
+                    <b>F03</b
+                    ><span data-i18n="field.f03">With Dr. Gahramanov, prototype in hand.</span>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="field-row">
+                <figure class="field-item" style="--ar: 1.3333">
+                  <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-mentor-04">
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcset="images/field-mentor-04-800.webp 800w, images/field-mentor-04.webp 1280w"
+                        sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 1200px) 55vw, 660px"
+                      />
+                      <img
+                        src="images/field-mentor-04-800.jpg"
+                        srcset="images/field-mentor-04-800.jpg 800w, images/field-mentor-04.jpg 1280w"
+                        sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 1200px) 55vw, 660px"
+                        width="800"
+                        height="600"
+                        loading="lazy"
+                        decoding="async"
+                        alt="A team member showing the prototype to Dr. Aydin Gahramanov at his desk"
+                        data-i18n-alt="field.alt.f04"
+                    /></picture>
+                  </button>
+                  <figcaption>
+                    <b>F04</b
+                    ><span data-i18n="field.f04">Walking Dr. Gahramanov through how the pressure plate works.</span>
+                  </figcaption>
+                </figure>
+                <figure class="field-item" style="--ar: 0.8375">
+                  <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-mentor-05">
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcset="images/field-mentor-05-800.webp 670w, images/field-mentor-05.webp 1072w"
+                        sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 1200px) 55vw, 660px"
+                      />
+                      <img
+                        src="images/field-mentor-05-800.jpg"
+                        srcset="images/field-mentor-05-800.jpg 670w, images/field-mentor-05.jpg 1072w"
+                        sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 1200px) 55vw, 660px"
+                        width="670"
+                        height="800"
+                        loading="lazy"
+                        decoding="async"
+                        alt="Two team members standing with Dr. Aydin Gahramanov in his office"
+                        data-i18n-alt="field.alt.f05"
+                    /></picture>
+                  </button>
+                  <figcaption>
+                    <b>F05</b
+                    ><span data-i18n="field.f05">The team with Dr. Gahramanov after he approved the project.</span>
+                  </figcaption>
+                </figure>
+              </div>
             </div>
           </div>
 
@@ -1285,226 +1298,234 @@
               ><span>F06–F13</span>
             </div>
             <p class="field-note" data-i18n="field.kids.body">We showed the prototype to a school class: how it works, what it measures, and what it doesn't. Photos are published with written parental consent; no names are shared.</p>
-            <div class="field-split">
-              <div class="field-grid field-videos">
-              <figure class="field-item field-video">
-                <button
-                  type="button"
-                  class="field-open"
-                  data-lb-type="video"
-                  data-lb-src="images/field-kids-02.mp4"
-                  data-lb-poster="images/field-kids-02-poster.jpg"
-                  aria-label="Video: a team member opens the black enclosure on a classroom desk to show the sensor pads"
-                  data-i18n-aria="field.alt.f06"
-                >
-                  <video
-                    class="field-preview"
-                    src="images/field-kids-02.mp4"
-                    poster="images/field-kids-02-poster.jpg"
-                    width="832"
-                    height="464"
-                    style="object-position: 50% 50%"
-                    muted
-                    loop
-                    playsinline
-                    preload="none"
-                    aria-hidden="true"
-                    tabindex="-1"
-                  ></video>
-                  <svg class="icon play-badge" width="28" height="28" aria-hidden="true">
-                    <use href="#i-play" />
-                  </svg>
-                </button>
-                <figcaption>
-                  <b>F06</b
-                  ><span data-i18n="field.f06">Opening the enclosure to show the sensor pads.</span>
-                </figcaption>
-              </figure>
-              <figure class="field-item field-video">
-                <button
-                  type="button"
-                  class="field-open"
-                  data-lb-type="video"
-                  data-lb-src="images/field-kids-04.mp4"
-                  data-lb-poster="images/field-kids-04-poster.jpg"
-                  aria-label="Video: students gather around the prototype while a team member explains the readings"
-                  data-i18n-aria="field.alt.f07"
-                >
-                  <video
-                    class="field-preview"
-                    src="images/field-kids-04.mp4"
-                    poster="images/field-kids-04-poster.jpg"
-                    width="576"
-                    height="1024"
-                    style="object-position: 50% 72%"
-                    muted
-                    loop
-                    playsinline
-                    preload="none"
-                    aria-hidden="true"
-                    tabindex="-1"
-                  ></video>
-                  <svg class="icon play-badge" width="28" height="28" aria-hidden="true">
-                    <use href="#i-play" />
-                  </svg>
-                </button>
-                <figcaption>
-                  <b>F07</b
-                  ><span data-i18n="field.f07">Explaining the readings while students try the plate.</span>
-                </figcaption>
-              </figure>
+            <div class="field-stack">
+              <div class="field-row field-hero">
+                <figure class="field-item" style="--ar: 1.3333">
+                  <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-05">
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcset="images/field-kids-05-800.webp 800w, images/field-kids-05.webp 1280w"
+                        sizes="(max-width: 1200px) calc(100vw - 48px), 1150px"
+                      />
+                      <img
+                        src="images/field-kids-05-800.jpg"
+                        srcset="images/field-kids-05-800.jpg 800w, images/field-kids-05.jpg 1280w"
+                        sizes="(max-width: 1200px) calc(100vw - 48px), 1150px"
+                        width="800"
+                        height="600"
+                        loading="lazy"
+                        decoding="async"
+                        alt="A class of students and the team gathered around the prototype and a laptop"
+                        data-i18n-alt="field.alt.f06"
+                    /></picture>
+                  </button>
+                  <figcaption>
+                    <b>F06</b
+                    ><span data-i18n="field.f06">The class after the demonstration.</span>
+                  </figcaption>
+                </figure>
               </div>
-              <div class="field-grid field-photos">
-              <figure class="field-item" style="--ar: 1.2225">
-                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-01">
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcset="images/field-kids-01-800.webp 800w, images/field-kids-01.webp 1280w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                    />
-                    <img
-                      src="images/field-kids-01-800.jpg"
-                      srcset="images/field-kids-01-800.jpg 800w, images/field-kids-01.jpg 1280w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                      width="800"
-                      height="654"
-                      loading="lazy"
-                      decoding="async"
-                      alt="Team members introducing the prototype to a class of students in school uniform"
-                      data-i18n-alt="field.alt.f08"
-                  /></picture>
-                </button>
-                <figcaption>
-                  <b>F08</b
-                  ><span data-i18n="field.f08">Introducing the project to a class.</span>
-                </figcaption>
-              </figure>
-              <figure class="field-item" style="--ar: 1.7931">
-                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-06">
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcset="images/field-kids-06-800.webp 800w, images/field-kids-06.webp 832w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                    />
-                    <img
-                      src="images/field-kids-06-800.jpg"
-                      srcset="images/field-kids-06-800.jpg 800w, images/field-kids-06.jpg 832w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                      width="800"
-                      height="446"
-                      loading="lazy"
-                      decoding="async"
-                      alt="Students' hands on the grey sensor pads inside the open black enclosure"
-                      data-i18n-alt="field.alt.f09"
-                  /></picture>
-                </button>
-                <figcaption>
-                  <b>F09</b
-                  ><span data-i18n="field.f09">Hands on the pads: feeling where the sensors sit.</span>
-                </figcaption>
-              </figure>
-              <figure class="field-item" style="--ar: 0.5625">
-                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-08">
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcset="images/field-kids-08-800.webp 450w, images/field-kids-08.webp 576w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                    />
-                    <img
-                      src="images/field-kids-08-800.jpg"
-                      srcset="images/field-kids-08-800.jpg 450w, images/field-kids-08.jpg 576w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                      width="450"
-                      height="800"
-                      loading="lazy"
-                      decoding="async"
-                      alt="A team member explains the prototype to a group of students around a desk"
-                      data-i18n-alt="field.alt.f10"
-                  /></picture>
-                </button>
-                <figcaption>
-                  <b>F10</b
-                  ><span data-i18n="field.f10">Answering the class's questions about what the plate measures.</span>
-                </figcaption>
-              </figure>
-              <figure class="field-item" style="--ar: 0.5625">
-                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-07">
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcset="images/field-kids-07-800.webp 450w, images/field-kids-07.webp 576w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                    />
-                    <img
-                      src="images/field-kids-07-800.jpg"
-                      srcset="images/field-kids-07-800.jpg 450w, images/field-kids-07.jpg 576w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                      width="450"
-                      height="800"
-                      loading="lazy"
-                      decoding="async"
-                      alt="A student presses the closed prototype on a desk while classmates watch, a laptop in front"
-                      data-i18n-alt="field.alt.f11"
-                  /></picture>
-                </button>
-                <figcaption>
-                  <b>F11</b
-                  ><span data-i18n="field.f11">A student presses the plate to see the readings change.</span>
-                </figcaption>
-              </figure>
-              <figure class="field-item" style="--ar: 0.75">
-                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-03">
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcset="images/field-kids-03-800.webp 600w, images/field-kids-03.webp 960w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                    />
-                    <img
-                      src="images/field-kids-03-800.jpg"
-                      srcset="images/field-kids-03-800.jpg 600w, images/field-kids-03.jpg 960w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                      width="600"
-                      height="800"
-                      loading="lazy"
-                      decoding="async"
-                      alt="A student standing on the prototype while a laptop shows the readings"
-                      data-i18n-alt="field.alt.f12"
-                  /></picture>
-                </button>
-                <figcaption>
-                  <b>F12</b
-                  ><span data-i18n="field.f12">A student stands on the plate; the readings appear on the laptop.</span>
-                </figcaption>
-              </figure>
-              <figure class="field-item" style="--ar: 1.3333">
-                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-05">
-                  <picture>
-                    <source
-                      type="image/webp"
-                      srcset="images/field-kids-05-800.webp 800w, images/field-kids-05.webp 1280w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                    />
-                    <img
-                      src="images/field-kids-05-800.jpg"
-                      srcset="images/field-kids-05-800.jpg 800w, images/field-kids-05.jpg 1280w"
-                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
-                      width="800"
-                      height="600"
-                      loading="lazy"
-                      decoding="async"
-                      alt="A class of students and the team gathered around the prototype and a laptop"
-                      data-i18n-alt="field.alt.f13"
-                  /></picture>
-                </button>
-                <figcaption>
-                  <b>F13</b
-                  ><span data-i18n="field.f13">The class after the demonstration.</span>
-                </figcaption>
-              </figure>
+              <div class="field-split">
+                <div class="field-videos">
+                    <figure class="field-item field-video" style="--ar: 1.7931">
+                      <button
+                        type="button"
+                        class="field-open"
+                        data-lb-type="video"
+                        data-lb-src="images/field-kids-02.mp4"
+                        data-lb-poster="images/field-kids-02-poster.jpg"
+                        aria-label="Video: a team member opens the black enclosure on a classroom desk to show the sensor pads"
+                        data-i18n-aria="field.alt.f07"
+                      >
+                        <video
+                          class="field-preview"
+                          src="images/field-kids-02.mp4"
+                          poster="images/field-kids-02-poster.jpg"
+                          width="832"
+                          height="464"
+                          muted
+                          loop
+                          playsinline
+                          preload="none"
+                          aria-hidden="true"
+                          tabindex="-1"
+                        ></video>
+                        <svg class="icon play-badge" width="28" height="28" aria-hidden="true">
+                          <use href="#i-play" />
+                        </svg>
+                      </button>
+                      <figcaption>
+                        <b>F07</b
+                        ><span data-i18n="field.f07">Opening the enclosure to show the sensor pads.</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="field-item field-video" style="--ar: 0.5625">
+                      <button
+                        type="button"
+                        class="field-open"
+                        data-lb-type="video"
+                        data-lb-src="images/field-kids-04.mp4"
+                        data-lb-poster="images/field-kids-04-poster.jpg"
+                        aria-label="Video: students gather around the prototype while a team member explains the readings"
+                        data-i18n-aria="field.alt.f08"
+                      >
+                        <video
+                          class="field-preview"
+                          src="images/field-kids-04.mp4"
+                          poster="images/field-kids-04-poster.jpg"
+                          width="576"
+                          height="1024"
+                          muted
+                          loop
+                          playsinline
+                          preload="none"
+                          aria-hidden="true"
+                          tabindex="-1"
+                        ></video>
+                        <svg class="icon play-badge" width="28" height="28" aria-hidden="true">
+                          <use href="#i-play" />
+                        </svg>
+                      </button>
+                      <figcaption>
+                        <b>F08</b
+                        ><span data-i18n="field.f08">Explaining the readings while students try the plate.</span>
+                      </figcaption>
+                    </figure>
+                </div>
+                <div class="field-photos">
+                  <div class="field-row">
+                    <figure class="field-item" style="--ar: 1.2225">
+                      <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-01">
+                        <picture>
+                          <source
+                            type="image/webp"
+                            srcset="images/field-kids-01-800.webp 800w, images/field-kids-01.webp 1280w"
+                            sizes="(max-width: 860px) calc(100vw - 48px), (max-width: 1200px) 55vw, 660px"
+                          />
+                          <img
+                            src="images/field-kids-01-800.jpg"
+                            srcset="images/field-kids-01-800.jpg 800w, images/field-kids-01.jpg 1280w"
+                            sizes="(max-width: 860px) calc(100vw - 48px), (max-width: 1200px) 55vw, 660px"
+                            width="800"
+                            height="654"
+                            loading="lazy"
+                            decoding="async"
+                            alt="Team members introducing the prototype to a class of students in school uniform"
+                            data-i18n-alt="field.alt.f09"
+                        /></picture>
+                      </button>
+                      <figcaption>
+                        <b>F09</b
+                        ><span data-i18n="field.f09">Introducing the project to a class.</span>
+                      </figcaption>
+                    </figure>
+                  </div>
+                  <div class="field-row">
+                    <figure class="field-item" style="--ar: 1.7931">
+                      <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-06">
+                        <picture>
+                          <source
+                            type="image/webp"
+                            srcset="images/field-kids-06-800.webp 800w, images/field-kids-06.webp 832w"
+                            sizes="(max-width: 860px) calc(100vw - 48px), (max-width: 1200px) 55vw, 660px"
+                          />
+                          <img
+                            src="images/field-kids-06-800.jpg"
+                            srcset="images/field-kids-06-800.jpg 800w, images/field-kids-06.jpg 832w"
+                            sizes="(max-width: 860px) calc(100vw - 48px), (max-width: 1200px) 55vw, 660px"
+                            width="800"
+                            height="446"
+                            loading="lazy"
+                            decoding="async"
+                            alt="Students' hands on the grey sensor pads inside the open black enclosure"
+                            data-i18n-alt="field.alt.f10"
+                        /></picture>
+                      </button>
+                      <figcaption>
+                        <b>F10</b
+                        ><span data-i18n="field.f10">Hands on the pads: feeling where the sensors sit.</span>
+                      </figcaption>
+                    </figure>
+                  </div>
+                  <div class="field-row field-trio">
+                    <figure class="field-item" style="--ar: 0.5625">
+                      <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-08">
+                        <picture>
+                          <source
+                            type="image/webp"
+                            srcset="images/field-kids-08-800.webp 450w, images/field-kids-08.webp 576w"
+                            sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 860px) 32vw, 230px"
+                          />
+                          <img
+                            src="images/field-kids-08-800.jpg"
+                            srcset="images/field-kids-08-800.jpg 450w, images/field-kids-08.jpg 576w"
+                            sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 860px) 32vw, 230px"
+                            width="450"
+                            height="800"
+                            loading="lazy"
+                            decoding="async"
+                            alt="A team member explains the prototype to a group of students around a desk"
+                            data-i18n-alt="field.alt.f11"
+                        /></picture>
+                      </button>
+                      <figcaption>
+                        <b>F11</b
+                        ><span data-i18n="field.f11">Answering the class's questions about what the plate measures.</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="field-item" style="--ar: 0.5625">
+                      <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-07">
+                        <picture>
+                          <source
+                            type="image/webp"
+                            srcset="images/field-kids-07-800.webp 450w, images/field-kids-07.webp 576w"
+                            sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 860px) 32vw, 230px"
+                          />
+                          <img
+                            src="images/field-kids-07-800.jpg"
+                            srcset="images/field-kids-07-800.jpg 450w, images/field-kids-07.jpg 576w"
+                            sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 860px) 32vw, 230px"
+                            width="450"
+                            height="800"
+                            loading="lazy"
+                            decoding="async"
+                            alt="A student presses the closed prototype on a desk while classmates watch, a laptop in front"
+                            data-i18n-alt="field.alt.f12"
+                        /></picture>
+                      </button>
+                      <figcaption>
+                        <b>F12</b
+                        ><span data-i18n="field.f12">A student presses the plate to see the readings change.</span>
+                      </figcaption>
+                    </figure>
+                    <figure class="field-item" style="--ar: 0.75">
+                      <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-03">
+                        <picture>
+                          <source
+                            type="image/webp"
+                            srcset="images/field-kids-03-800.webp 600w, images/field-kids-03.webp 960w"
+                            sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 860px) 32vw, 230px"
+                          />
+                          <img
+                            src="images/field-kids-03-800.jpg"
+                            srcset="images/field-kids-03-800.jpg 600w, images/field-kids-03.jpg 960w"
+                            sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 860px) 32vw, 230px"
+                            width="600"
+                            height="800"
+                            loading="lazy"
+                            decoding="async"
+                            alt="A student standing on the prototype while a laptop shows the readings"
+                            data-i18n-alt="field.alt.f13"
+                        /></picture>
+                      </button>
+                      <figcaption>
+                        <b>F13</b
+                        ><span data-i18n="field.f13">A student stands on the plate; the readings appear on the laptop.</span>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -2231,7 +2252,7 @@
       </figure>
     </div>
 
-    <script src="js/i18n.js?v=3"></script>
-    <script src="js/main.js?v=3"></script>
+    <script src="js/i18n.js?v=4"></script>
+    <script src="js/main.js?v=4"></script>
   </body>
 </html>

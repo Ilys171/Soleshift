@@ -320,12 +320,20 @@
     });
   }
 
-  /* ---------- Section buttons: highlight the section in view ---------- */
-  var sectionNav = document.querySelector(".section-nav-inner");
-  if (sectionNav && "IntersectionObserver" in window) {
-    var navLinks = {};
-    sectionNav.querySelectorAll("a").forEach(function (a) {
-      navLinks[a.getAttribute("href").slice(1)] = a;
+  /* ---------- Header links: mark the section in view ---------- */
+  var sectionLinks = document.querySelectorAll(
+    '.nav-links a[href^="#"], .nav-mobile a[href^="#"]',
+  );
+  if (sectionLinks.length && "IntersectionObserver" in window) {
+    var order = [];
+    var byId = {};
+    sectionLinks.forEach(function (a) {
+      var id = a.getAttribute("href").slice(1);
+      if (!byId[id]) {
+        byId[id] = [];
+        order.push(id);
+      }
+      byId[id].push(a);
     });
     var visible = {};
     var sectionObserver = new IntersectionObserver(
@@ -335,29 +343,21 @@
         });
         // First section (in page order) crossing the band below the header wins
         var current = null;
-        Object.keys(navLinks).some(function (id) {
+        order.some(function (id) {
           if (visible[id]) current = id;
           return visible[id];
         });
-        Object.keys(navLinks).forEach(function (id) {
-          var on = id === current;
-          navLinks[id].classList.toggle("active", on);
-          if (on) navLinks[id].setAttribute("aria-current", "true");
-          else navLinks[id].removeAttribute("aria-current");
-        });
-        if (current) {
-          // Keep the active button visible in the scrollable row (phones)
-          var a = navLinks[current];
-          var left = a.offsetLeft - (sectionNav.clientWidth - a.offsetWidth) / 2;
-          sectionNav.scrollTo({
-            left: left,
-            behavior: reduceMotion ? "auto" : "smooth",
+        order.forEach(function (id) {
+          byId[id].forEach(function (a) {
+            a.classList.toggle("active", id === current);
+            if (id === current) a.setAttribute("aria-current", "true");
+            else a.removeAttribute("aria-current");
           });
-        }
+        });
       },
       { rootMargin: "-30% 0px -60% 0px" },
     );
-    Object.keys(navLinks).forEach(function (id) {
+    order.forEach(function (id) {
       var el = document.getElementById(id);
       if (el) sectionObserver.observe(el);
     });

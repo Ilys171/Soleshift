@@ -43,7 +43,6 @@
   --font-mono: "IBM Plex Mono", monospace;
 
   --nav-h: 76px;
-  --subnav-h: 46px;
   --section-pad: 64px;
 }
 
@@ -61,7 +60,7 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--nav-h) + var(--subnav-h) + 12px);
+  scroll-padding-top: calc(var(--nav-h) + 12px);
 }
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -285,20 +284,35 @@ ul {
 .wordmark.on-dark span {
   color: var(--teal-bright);
 }
+/* Section links: small uppercase mono, underline marks the section in view */
 .nav-links {
   display: flex;
-  gap: 28px;
+  align-self: stretch;
+  gap: clamp(12px, 1.5vw, 22px);
   flex: 1;
-  justify-content: center;
+  justify-content: flex-end;
+  min-width: 0;
 }
 .nav-links a {
-  font-size: 14.5px;
-  font-weight: 500;
-  color: var(--text-secondary);
-  transition: color 0.15s ease;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--text);
+  box-shadow: inset 0 -2px 0 transparent;
+  transition:
+    color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 .nav-links a:hover {
   color: var(--teal);
+}
+.nav-links a.active {
+  color: var(--teal);
+  box-shadow: inset 0 -2px 0 var(--teal);
 }
 .nav-actions {
   display: flex;
@@ -405,15 +419,26 @@ ul {
 
 .nav-burger {
   display: none;
-  flex-direction: column;
-  gap: 5px;
+  align-items: center;
+  gap: 10px;
   background: none;
-  border: none;
+  border: 1px solid var(--dark);
+  border-radius: var(--r-btn);
   cursor: pointer;
-  padding: 8px;
+  padding: 7px 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark);
 }
-.nav-burger span {
-  width: 22px;
+.burger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.burger-lines span {
+  width: 16px;
   height: 2px;
   background: var(--dark);
   border-radius: 2px;
@@ -436,9 +461,20 @@ ul {
 }
 .nav-mobile a {
   padding: 12px 4px;
-  font-weight: 500;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--text);
   border-bottom: 1px solid var(--border);
+}
+.nav-mobile a.active {
+  color: var(--teal);
+}
+.nav-mobile a.btn {
+  font-family: var(--font-body);
+  letter-spacing: normal;
+  text-transform: none;
 }
 .nav-mobile a:last-child {
   border-bottom: none;
@@ -449,68 +485,13 @@ ul {
   display: flex;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1200px) {
   .nav-links,
   .nav-actions {
     display: none;
   }
   .nav-burger {
     display: flex;
-  }
-}
-
-/* ===== Section buttons (second header row) ===== */
-.section-nav {
-  border-top: 1px solid var(--border);
-}
-.section-nav-inner {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: var(--subnav-h);
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.section-nav-inner::-webkit-scrollbar {
-  display: none;
-}
-.section-nav a {
-  flex: none;
-  padding: 5px 12px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--surface);
-  font-size: 13.5px;
-  font-weight: 500;
-  line-height: 1.4;
-  white-space: nowrap;
-  color: var(--text-secondary);
-  transition:
-    color 0.15s ease,
-    border-color 0.15s ease,
-    background 0.15s ease;
-}
-.section-nav a:hover {
-  color: var(--teal);
-  border-color: var(--teal);
-}
-.section-nav a.active {
-  color: var(--teal);
-  border-color: var(--teal);
-  background: var(--teal-tint);
-}
-@media (min-width: 1100px) {
-  .section-nav-inner {
-    justify-content: center;
-  }
-}
-@media (max-width: 860px) {
-  .section-nav-inner {
-    gap: 6px;
-  }
-  .section-nav a {
-    font-size: 13px;
-    padding: 4px 10px;
   }
 }
 
@@ -1521,37 +1502,32 @@ ul {
   background: var(--surface);
 }
 .field-block + .field-block {
-  margin-top: 24px;
+  margin-top: 32px;
 }
 .field-note {
   margin: 0;
-  padding: 12px 14px;
+  padding: 12px 18px;
   border-bottom: 1px solid var(--border);
   font-size: 15px;
   line-height: 1.55;
 }
-/* Justified rows: each item grows by its aspect ratio, so photos in a row
-   share one height and nothing is cropped. */
-.field-grid {
+.field-stack {
   display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  padding: 14px;
+  flex-direction: column;
+  gap: 28px;
+  padding: 18px;
 }
-.field-grid::after {
-  content: "";
-  flex: 100 1 0; /* soaks up the last row so a lone photo keeps row height */
+/* One row = one shared height. Each item's width follows its aspect ratio,
+   so nothing is cropped and every row runs edge to edge. */
+.field-row {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
 }
 .field-item {
-  flex: var(--ar) 1 calc(var(--ar) * 240px);
-  max-width: calc(var(--ar) * 360px); /* a photo alone on a row never balloons */
+  flex: var(--ar) 1 0;
   min-width: 0;
   margin: 0;
-}
-@media (max-width: 980px) {
-  .field-item {
-    flex-basis: calc(var(--ar) * 170px);
-  }
 }
 .field-open {
   position: relative;
@@ -1562,7 +1538,8 @@ ul {
   background: var(--bg-alt);
   cursor: zoom-in;
 }
-.field-open img {
+.field-open img,
+.field-preview {
   display: block;
   width: 100%;
   height: auto;
@@ -1570,63 +1547,29 @@ ul {
   object-fit: cover;
   transition: opacity 0.15s ease;
 }
+.field-preview {
+  background: var(--dark);
+}
 .field-open:hover img {
   opacity: 0.9;
 }
 .field-item figcaption {
-  padding-top: 8px;
-  font-size: 13.5px;
-  line-height: 1.4;
+  padding-top: 10px;
+  font-size: 14.5px;
+  line-height: 1.45;
   font-style: italic;
   color: var(--text-secondary);
 }
 .field-item figcaption b {
   font-family: var(--font-mono);
   font-style: normal;
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 600;
   color: var(--teal);
   margin-right: 6px;
 }
-@media (max-width: 600px) {
-  .field-item {
-    flex: 1 1 100%;
-    max-width: none;
-  }
-  .field-grid::after {
-    display: none;
-  }
-}
-
-/* Children block: videos left, photos right */
-.field-split {
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-}
-.field-split .field-photos {
-  border-left: 1px solid var(--border);
-}
-.field-split .field-item {
-  flex-basis: calc(var(--ar) * 185px);
-}
-.field-videos {
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-.field-videos::after {
-  display: none;
-}
-.field-split .field-videos .field-video {
-  flex: none; /* stacked column: never take the photo grid's flex sizing */
-  max-width: none;
-}
-.field-preview {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  background: var(--dark);
+.field-hero figcaption {
+  font-size: 15.5px;
 }
 .field-open .play-badge {
   transition: opacity 0.2s ease;
@@ -1634,27 +1577,58 @@ ul {
 .field-open.is-playing .play-badge {
   opacity: 0;
 }
+
+/* Children block: videos left (original shapes), photos right */
+.field-split {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 28px;
+  align-items: start;
+}
+.field-videos,
+.field-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.field-videos .field-video {
+  flex: none;
+}
+
 @media (max-width: 860px) {
   .field-split {
     grid-template-columns: 1fr;
   }
-  .field-split .field-photos {
-    border-left: none;
-    border-top: 1px solid var(--border);
+  /* tablets: two equal columns, so the vertical video stays tall and no
+     single photo outgrows the class photo on top */
+  .field-videos,
+  .field-photos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+  }
+  .field-photos .field-trio {
+    grid-column: 1 / -1;
   }
 }
-@media (min-width: 601px) and (max-width: 860px) {
-  .field-videos {
-    flex-direction: row;
+@media (max-width: 480px) {
+  .field-stack {
+    padding: 14px;
+    gap: 22px;
   }
-  .field-split .field-videos .field-video {
-    flex: 1 1 0;
-    min-width: 0;
+  .field-row,
+  .field-videos,
+  .field-photos {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* full width before images load: no layout shift */
+    gap: 22px;
   }
-}
-@media (max-width: 600px) {
-  .field-split .field-item {
-    flex-basis: 100%;
+  .field-item,
+  .field-videos .field-video {
+    flex: none;
+    width: 100%;
   }
 }
 
