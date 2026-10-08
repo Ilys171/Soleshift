@@ -50,4 +50,4 @@ Idea → prototype stage. Hardware, scanning pipeline, and pilot are in progress
 
 ## Contact
 
-hello@soleshiftkids.org
+soleshift17@gmail.com
