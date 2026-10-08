@@ -160,6 +160,7 @@
 
   /* ---------- Build log viewer ---------- */
   var logImg = document.getElementById("logImg");
+  var logVideo = document.getElementById("logVideo");
   var logCode = document.getElementById("logCode");
   var logText = document.getElementById("logText");
   var logRows = document.querySelectorAll(".log-row");
@@ -171,13 +172,124 @@
       });
       row.classList.add("active");
       row.setAttribute("aria-pressed", "true");
-      logImg.src = row.getAttribute("data-src");
-      logImg.alt = row.getAttribute("data-alt");
-      logImg.style.objectPosition = row.getAttribute("data-pos") || "50% 50%";
+      var key = row.getAttribute("data-key");
+      var video = row.getAttribute("data-video");
+      // Keys stay on the feature so a later language switch re-translates it
+      logText.setAttribute("data-i18n", "build.log." + key);
+      logText.textContent = window.SSK_t("build.log." + key);
       logCode.textContent = row.getAttribute("data-code");
-      logText.textContent = row.getAttribute("data-cap");
+      if (video) {
+        logImg.hidden = true;
+        logVideo.hidden = false;
+        logVideo.poster = row.getAttribute("data-src");
+        logVideo.setAttribute("data-i18n-aria", "build.alt." + key);
+        logVideo.setAttribute("aria-label", window.SSK_t("build.alt." + key));
+        if (logVideo.getAttribute("src") !== video) logVideo.src = video;
+        if (!reduceMotion) logVideo.play().catch(function () {});
+      } else {
+        logVideo.pause();
+        logVideo.hidden = true;
+        logImg.hidden = false;
+        logImg.src = row.getAttribute("data-src");
+        logImg.setAttribute("data-i18n-alt", "build.alt." + key);
+        logImg.alt = window.SSK_t("build.alt." + key);
+      }
     });
   });
+
+  /* ---------- Lightbox (In the field gallery) ---------- */
+  var lightbox = document.getElementById("lightbox");
+  var lbItems = Array.prototype.slice.call(
+    document.querySelectorAll(".field-open"),
+  );
+  if (lightbox && lbItems.length) {
+    var lbImg = document.getElementById("lbImg");
+    var lbWebp = document.getElementById("lbWebp");
+    var lbVideo = document.getElementById("lbVideo");
+    var lbCode = document.getElementById("lbCode");
+    var lbText = document.getElementById("lbText");
+    var lbIndex = 0;
+    var lbReturnFocus = null;
+
+    function lbShow(i) {
+      lbIndex = (i + lbItems.length) % lbItems.length;
+      var btn = lbItems[lbIndex];
+      var fig = btn.closest(".field-item");
+      var src = btn.getAttribute("data-lb-src");
+      var thumb = btn.querySelector("img");
+      lbCode.textContent = fig.querySelector("figcaption b").textContent;
+      lbText.textContent = fig.querySelector("figcaption span").textContent;
+      if (btn.getAttribute("data-lb-type") === "video") {
+        lbImg.parentNode.hidden = true;
+        lbVideo.hidden = false;
+        lbVideo.poster = btn.getAttribute("data-lb-poster");
+        lbVideo.setAttribute("aria-label", thumb.alt);
+        lbVideo.src = src;
+        if (!reduceMotion) lbVideo.play().catch(function () {});
+      } else {
+        lbVideo.pause();
+        lbVideo.removeAttribute("src");
+        lbVideo.hidden = true;
+        lbImg.parentNode.hidden = false;
+        lbWebp.srcset = src + ".webp";
+        lbImg.src = src + ".jpg";
+        lbImg.alt = thumb.alt;
+      }
+    }
+
+    function lbOpen(i) {
+      lbReturnFocus = document.activeElement;
+      lightbox.hidden = false;
+      document.body.style.overflow = "hidden";
+      lbShow(i);
+      lightbox.querySelector(".lb-close").focus();
+    }
+
+    function lbClose() {
+      lbVideo.pause();
+      lbVideo.removeAttribute("src");
+      lightbox.hidden = true;
+      document.body.style.overflow = "";
+      if (lbReturnFocus) lbReturnFocus.focus();
+    }
+
+    lbItems.forEach(function (btn, i) {
+      btn.addEventListener("click", function () {
+        lbOpen(i);
+      });
+    });
+    lightbox.querySelector(".lb-close").addEventListener("click", lbClose);
+    lightbox.querySelector(".lb-prev").addEventListener("click", function () {
+      lbShow(lbIndex - 1);
+    });
+    lightbox.querySelector(".lb-next").addEventListener("click", function () {
+      lbShow(lbIndex + 1);
+    });
+    // Backdrop click: anything that isn't the media, caption, or a control
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox || e.target.classList.contains("lb-figure"))
+        lbClose();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (lightbox.hidden) return;
+      if (e.key === "Escape") lbClose();
+      else if (e.key === "ArrowLeft") lbShow(lbIndex - 1);
+      else if (e.key === "ArrowRight") lbShow(lbIndex + 1);
+      else if (e.key === "Tab") {
+        // Keep focus inside the dialog
+        var f = lightbox.querySelectorAll("button, video:not([hidden])");
+        var first = f[0];
+        var last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+  }
 
   /* ---------- Hero point cloud (foot made of dots) ---------- */
   var svg = document.getElementById("pointCloud");

@@ -384,6 +384,18 @@
             stroke-linecap="round"
           />
         </symbol>
+        <symbol id="i-play" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="11" fill="rgba(18, 38, 63, 0.72)" />
+          <path d="M10 8.2v7.6l6-3.8-6-3.8Z" fill="#ffffff" />
+        </symbol>
+        <symbol id="i-close" viewBox="0 0 24 24">
+          <path
+            d="M6 6l12 12M18 6 6 18"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+          />
+        </symbol>
         <symbol id="i-chart" viewBox="0 0 24 24">
           <path
             d="M4 20V4M4 20h16"
@@ -570,9 +582,9 @@
             >
           </div>
           <div class="trust-stat">
-            <span class="stat-num" data-count="0">0</span
-            ><span class="stat-label" data-i18n="trust.diagnosesMade"
-              >Diagnoses made</span
+            <span class="stat-num" data-count="92">0</span
+            ><span class="stat-label" data-i18n="trust.screenings"
+              >Screenings completed</span
             >
           </div>
           <div class="trust-stat">
@@ -806,7 +818,7 @@
             </div>
             <div class="spec">
               <span class="spec-k">Stage</span
-              ><span class="spec-v">Breadboard prototype</span>
+              ><span class="spec-v">Enclosed prototype</span>
             </div>
           </div>
 
@@ -819,20 +831,31 @@
                 height="1280"
                 loading="lazy"
                 alt="Eight-pad FSR pressure array wired to an early breadboard prototype"
-                style="object-position: 50% 55%"
+                data-i18n-alt="build.alt.p01"
               />
+              <video
+                id="logVideo"
+                width="576"
+                height="1024"
+                muted
+                loop
+                playsinline
+                controls
+                preload="none"
+                hidden
+              ></video>
               <figcaption>
                 <b id="logCode">P01</b
-                ><span id="logText"
-                  >Eight-pad FSR array wired to the first breadboard
-                  prototype.</span
+                ><span id="logText" data-i18n="build.log.p01"
+                  >Eight-pad FSR array wired to the first breadboard prototype.</span
                 >
               </figcaption>
             </figure>
 
             <div class="log-list">
               <div class="log-head">
-                <span>Iteration log</span><span>8 entries</span>
+                <span data-i18n="build.log.head">Iteration log</span
+                ><span data-i18n="build.log.count">10 entries</span>
               </div>
 
               <button
@@ -840,24 +863,23 @@
                 class="log-row active"
                 aria-pressed="true"
                 data-code="P01"
-                data-pos="50% 55%"
+                data-key="p01"
                 data-src="images/proto-sensor-array.jpg"
-                data-alt="Eight-pad FSR pressure array wired to an early breadboard prototype"
-                data-cap="Eight-pad FSR array wired to the first breadboard prototype."
               >
-                <img
-                  class="log-thumb"
-                  src="images/proto-sensor-array.jpg"
-                  alt=""
-                  width="96"
-                  height="64"
-                  loading="lazy"
-                />
+                <span class="media-thumb"
+                  ><img
+                    class="log-thumb"
+                    src="images/proto-sensor-array-thumb.jpg"
+                    alt=""
+                    width="96"
+                    height="64"
+                    loading="lazy"
+                  /></span
+                >
                 <span class="log-meta"
                   ><span class="log-code">P01</span
-                  ><span class="log-text"
-                    >Eight-pad FSR array wired to the first breadboard
-                    prototype.</span
+                  ><span class="log-text" data-i18n="build.log.p01"
+                    >Eight-pad FSR array wired to the first breadboard prototype.</span
                   ></span
                 >
               </button>
@@ -867,24 +889,23 @@
                 class="log-row"
                 aria-pressed="false"
                 data-code="P02"
-                data-pos="50% 50%"
+                data-key="p02"
                 data-src="images/proto-pads-closeup.jpg"
-                data-alt="Laptop showing live FSR sensor readings scrolling in the serial monitor"
-                data-cap="Live pad output streamed over serial during a debug session."
               >
-                <img
-                  class="log-thumb"
-                  src="images/proto-pads-closeup.jpg"
-                  alt=""
-                  width="96"
-                  height="64"
-                  loading="lazy"
-                />
+                <span class="media-thumb"
+                  ><img
+                    class="log-thumb"
+                    src="images/proto-pads-closeup-thumb.jpg"
+                    alt=""
+                    width="96"
+                    height="64"
+                    loading="lazy"
+                  /></span
+                >
                 <span class="log-meta"
                   ><span class="log-code">P02</span
-                  ><span class="log-text"
-                    >Live pad output streamed over serial during a debug
-                    session.</span
+                  ><span class="log-text" data-i18n="build.log.p02"
+                    >Live pad output streamed over serial during a debug session.</span
                   ></span
                 >
               </button>
@@ -894,22 +915,22 @@
                 class="log-row"
                 aria-pressed="false"
                 data-code="P03"
-                data-pos="50% 35%"
+                data-key="p03"
                 data-src="images/proto-testing-hands.jpg"
-                data-alt="Arduino IDE open with firmware code, ready to flash to the ESP32 dev module"
-                data-cap="Flashing firmware to the ESP32 dev module."
               >
-                <img
-                  class="log-thumb"
-                  src="images/proto-testing-hands.jpg"
-                  alt=""
-                  width="96"
-                  height="64"
-                  loading="lazy"
-                />
+                <span class="media-thumb"
+                  ><img
+                    class="log-thumb"
+                    src="images/proto-testing-hands-thumb.jpg"
+                    alt=""
+                    width="96"
+                    height="64"
+                    loading="lazy"
+                  /></span
+                >
                 <span class="log-meta"
                   ><span class="log-code">P03</span
-                  ><span class="log-text"
+                  ><span class="log-text" data-i18n="build.log.p03"
                     >Flashing firmware to the ESP32 dev module.</span
                   ></span
                 >
@@ -920,49 +941,22 @@
                 class="log-row"
                 aria-pressed="false"
                 data-code="P04"
-                data-pos="50% 40%"
-                data-src="images/proto-wiring-detail.jpg"
-                data-alt="Channel wiring fanning out from the breadboard to each sensor pad"
-                data-cap="Channel wiring before the array was fixed to a footplate."
+                data-key="p04"
+                data-src="images/proto-array-wiring.jpg"
               >
-                <img
-                  class="log-thumb"
-                  src="images/proto-wiring-detail.jpg"
-                  alt=""
-                  width="96"
-                  height="64"
-                  loading="lazy"
-                />
+                <span class="media-thumb"
+                  ><img
+                    class="log-thumb"
+                    src="images/proto-array-wiring-thumb.jpg"
+                    alt=""
+                    width="96"
+                    height="64"
+                    loading="lazy"
+                  /></span
+                >
                 <span class="log-meta"
                   ><span class="log-code">P04</span
-                  ><span class="log-text"
-                    >Channel wiring before the array was fixed to a
-                    footplate.</span
-                  ></span
-                >
-              </button>
-
-              <button
-                type="button"
-                class="log-row"
-                aria-pressed="false"
-                data-code="P05"
-                data-pos="50% 22%"
-                data-src="images/proto-array-wiring.jpg"
-                data-alt="Two people testing the sensor array by hand"
-                data-cap="Early hands-on testing of pad placement and response."
-              >
-                <img
-                  class="log-thumb"
-                  src="images/proto-array-wiring.jpg"
-                  alt=""
-                  width="96"
-                  height="64"
-                  loading="lazy"
-                />
-                <span class="log-meta"
-                  ><span class="log-code">P05</span
-                  ><span class="log-text"
+                  ><span class="log-text" data-i18n="build.log.p04"
                     >Early hands-on testing of pad placement and response.</span
                   ></span
                 >
@@ -972,24 +966,50 @@
                 type="button"
                 class="log-row"
                 aria-pressed="false"
-                data-code="P06"
-                data-pos="50% 18%"
-                data-src="images/proto-serial-monitor.jpg"
-                data-alt="Detailed view of the breadboard signal routing"
-                data-cap="Close-up of the breadboard's signal routing."
+                data-code="P05"
+                data-key="p05"
+                data-src="images/proto-calibration.jpg"
               >
-                <img
-                  class="log-thumb"
-                  src="images/proto-serial-monitor.jpg"
-                  alt=""
-                  width="96"
-                  height="64"
-                  loading="lazy"
-                />
+                <span class="media-thumb"
+                  ><img
+                    class="log-thumb"
+                    src="images/proto-calibration-thumb.jpg"
+                    alt=""
+                    width="96"
+                    height="64"
+                    loading="lazy"
+                  /></span
+                >
+                <span class="log-meta"
+                  ><span class="log-code">P05</span
+                  ><span class="log-text" data-i18n="build.log.p05"
+                    >Reading and calibrating pad thresholds channel by channel.</span
+                  ></span
+                >
+              </button>
+
+              <button
+                type="button"
+                class="log-row"
+                aria-pressed="false"
+                data-code="P06"
+                data-key="p06"
+                data-src="images/proto-enclosure-open.jpg"
+              >
+                <span class="media-thumb"
+                  ><img
+                    class="log-thumb"
+                    src="images/proto-enclosure-open-thumb.jpg"
+                    alt=""
+                    width="96"
+                    height="64"
+                    loading="lazy"
+                  /></span
+                >
                 <span class="log-meta"
                   ><span class="log-code">P06</span
-                  ><span class="log-text"
-                    >Close-up of the breadboard's signal routing.</span
+                  ><span class="log-text" data-i18n="build.log.p06"
+                    >The eight pads mounted inside the black enclosure, wiring routed underneath.</span
                   ></span
                 >
               </button>
@@ -999,23 +1019,23 @@
                 class="log-row"
                 aria-pressed="false"
                 data-code="P07"
-                data-pos="50% 32%"
-                data-src="images/proto-ide-setup.jpg"
-                data-alt="Individual FSR pads laid out next to the breadboard for calibration"
-                data-cap="Individual pads prepared for calibration."
+                data-key="p07"
+                data-src="images/proto-enclosure-lid.jpg"
               >
-                <img
-                  class="log-thumb"
-                  src="images/proto-ide-setup.jpg"
-                  alt=""
-                  width="96"
-                  height="64"
-                  loading="lazy"
-                />
+                <span class="media-thumb"
+                  ><img
+                    class="log-thumb"
+                    src="images/proto-enclosure-lid-thumb.jpg"
+                    alt=""
+                    width="96"
+                    height="64"
+                    loading="lazy"
+                  /></span
+                >
                 <span class="log-meta"
                   ><span class="log-code">P07</span
-                  ><span class="log-text"
-                    >Individual pads prepared for calibration.</span
+                  ><span class="log-text" data-i18n="build.log.p07"
+                    >Lid closed: the foot-shaped pad layout under the top plate.</span
                   ></span
                 >
               </button>
@@ -1025,27 +1045,361 @@
                 class="log-row"
                 aria-pressed="false"
                 data-code="P08"
-                data-pos="50% 42%"
-                data-src="images/proto-calibration.jpg"
-                data-alt="Reading and calibrating each sensor pad channel by channel"
-                data-cap="Reading and calibrating pad thresholds channel by channel."
+                data-key="p08"
+                data-src="images/proto-enclosure-pads.jpg"
               >
-                <img
-                  class="log-thumb"
-                  src="images/proto-calibration.jpg"
-                  alt=""
-                  width="96"
-                  height="64"
-                  loading="lazy"
-                />
+                <span class="media-thumb"
+                  ><img
+                    class="log-thumb"
+                    src="images/proto-enclosure-pads-thumb.jpg"
+                    alt=""
+                    width="96"
+                    height="64"
+                    loading="lazy"
+                  /></span
+                >
                 <span class="log-meta"
                   ><span class="log-code">P08</span
-                  ><span class="log-text"
-                    >Reading and calibrating pad thresholds channel by
-                    channel.</span
+                  ><span class="log-text" data-i18n="build.log.p08"
+                    >Pads showing through the lid, where the foot stands.</span
                   ></span
                 >
               </button>
+
+              <button
+                type="button"
+                class="log-row"
+                aria-pressed="false"
+                data-code="P09"
+                data-key="p09"
+                data-src="images/proto-enclosure-side.jpg"
+              >
+                <span class="media-thumb"
+                  ><img
+                    class="log-thumb"
+                    src="images/proto-enclosure-side-thumb.jpg"
+                    alt=""
+                    width="96"
+                    height="64"
+                    loading="lazy"
+                  /></span
+                >
+                <span class="log-meta"
+                  ><span class="log-code">P09</span
+                  ><span class="log-text" data-i18n="build.log.p09"
+                    >Side view: a low, closed box with a single USB cable.</span
+                  ></span
+                >
+              </button>
+
+              <button
+                type="button"
+                class="log-row"
+                aria-pressed="false"
+                data-code="P10"
+                data-key="p10"
+                data-src="images/proto-live-test-poster.jpg"
+                data-video="images/proto-live-test.mp4"
+              >
+                <span class="media-thumb"
+                  ><img
+                    class="log-thumb"
+                    src="images/proto-live-test-poster-thumb.jpg"
+                    alt=""
+                    width="96"
+                    height="64"
+                    loading="lazy"
+                  />
+                  <svg class="icon play-badge" width="20" height="20" aria-hidden="true">
+                    <use href="#i-play" />
+                  </svg></span
+                >
+                <span class="log-meta"
+                  ><span class="log-code">P10</span
+                  ><span class="log-text" data-i18n="build.log.p10"
+                    >Live test: a foot on the plate, load per region in the serial monitor.</span
+                  ></span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- In the field -->
+      <section class="section" id="in-the-field">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="field.eyebrow">Behind the project</p>
+            <h2 data-i18n="field.h2">In the field</h2>
+            <p class="section-sub" data-i18n="field.intro">
+              The people who helped shape SoleShift Kids, and the children it's built for.
+            </p>
+          </div>
+
+          <div class="field-block reveal">
+            <div class="log-head">
+              <span data-i18n="field.mentor.title">With Dr. Aydin Gahramanov</span
+              ><span>F01–F05</span>
+            </div>
+            <p class="field-note" data-i18n="field.mentor.body">Dr. Aydin Gahramanov — Doctor of Medical Sciences, chair of AO Trauma Azerbaijan and SICOT's national representative for Azerbaijan — reviewed the prototype at the Research Institute of Traumatology and Orthopedics and approved the project.</p>
+            <div class="field-grid">
+              <figure class="field-item" style="--ar: 0.75">
+                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-mentor-01">
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="images/field-mentor-01-800.webp 600w, images/field-mentor-01.webp 960w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                    />
+                    <img
+                      src="images/field-mentor-01-800.jpg"
+                      srcset="images/field-mentor-01-800.jpg 600w, images/field-mentor-01.jpg 960w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                      width="600"
+                      height="800"
+                      loading="lazy"
+                      decoding="async"
+                      alt="Two team members holding the prototype outside the Research Institute of Traumatology and Orthopedics"
+                      data-i18n-alt="field.alt.f01"
+                  /></picture>
+                </button>
+                <figcaption>
+                  <b>F01</b
+                  ><span data-i18n="field.f01">Arriving at the Research Institute of Traumatology and Orthopedics with the prototype.</span>
+                </figcaption>
+              </figure>
+              <figure class="field-item" style="--ar: 0.75">
+                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-mentor-02">
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="images/field-mentor-02-800.webp 600w, images/field-mentor-02.webp 960w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                    />
+                    <img
+                      src="images/field-mentor-02-800.jpg"
+                      srcset="images/field-mentor-02-800.jpg 600w, images/field-mentor-02.jpg 960w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                      width="600"
+                      height="800"
+                      loading="lazy"
+                      decoding="async"
+                      alt="Two team members with the prototype in front of the institute entrance"
+                      data-i18n-alt="field.alt.f02"
+                  /></picture>
+                </button>
+                <figcaption>
+                  <b>F02</b
+                  ><span data-i18n="field.f02">Outside the institute, before the meeting.</span>
+                </figcaption>
+              </figure>
+              <figure class="field-item" style="--ar: 0.75">
+                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-mentor-03">
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="images/field-mentor-03-800.webp 600w, images/field-mentor-03.webp 960w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                    />
+                    <img
+                      src="images/field-mentor-03-800.jpg"
+                      srcset="images/field-mentor-03-800.jpg 600w, images/field-mentor-03.jpg 960w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                      width="600"
+                      height="800"
+                      loading="lazy"
+                      decoding="async"
+                      alt="A team member holding the prototype beside Dr. Aydin Gahramanov in his office"
+                      data-i18n-alt="field.alt.f03"
+                  /></picture>
+                </button>
+                <figcaption>
+                  <b>F03</b
+                  ><span data-i18n="field.f03">With Dr. Gahramanov, prototype in hand.</span>
+                </figcaption>
+              </figure>
+              <figure class="field-item" style="--ar: 1.3333">
+                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-mentor-04">
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="images/field-mentor-04-800.webp 800w, images/field-mentor-04.webp 1280w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                    />
+                    <img
+                      src="images/field-mentor-04-800.jpg"
+                      srcset="images/field-mentor-04-800.jpg 800w, images/field-mentor-04.jpg 1280w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                      width="800"
+                      height="600"
+                      loading="lazy"
+                      decoding="async"
+                      alt="A team member showing the prototype to Dr. Aydin Gahramanov at his desk"
+                      data-i18n-alt="field.alt.f04"
+                  /></picture>
+                </button>
+                <figcaption>
+                  <b>F04</b
+                  ><span data-i18n="field.f04">Walking Dr. Gahramanov through how the pressure plate works.</span>
+                </figcaption>
+              </figure>
+              <figure class="field-item" style="--ar: 0.8375">
+                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-mentor-05">
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="images/field-mentor-05-800.webp 670w, images/field-mentor-05.webp 1072w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                    />
+                    <img
+                      src="images/field-mentor-05-800.jpg"
+                      srcset="images/field-mentor-05-800.jpg 670w, images/field-mentor-05.jpg 1072w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                      width="670"
+                      height="800"
+                      loading="lazy"
+                      decoding="async"
+                      alt="Two team members standing with Dr. Aydin Gahramanov in his office"
+                      data-i18n-alt="field.alt.f05"
+                  /></picture>
+                </button>
+                <figcaption>
+                  <b>F05</b
+                  ><span data-i18n="field.f05">The team with Dr. Gahramanov after he approved the project.</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="field-block reveal">
+            <div class="log-head">
+              <span data-i18n="field.kids.title">With the children</span
+              ><span>F06–F10</span>
+            </div>
+            <p class="field-note" data-i18n="field.kids.body">
+              We showed the prototype to a school class: how it works, what it measures, and what it doesn't. Photos are published with written parental consent; no names are shared.
+            </p>
+            <div class="field-grid">
+              <figure class="field-item" style="--ar: 1.2225">
+                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-01">
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="images/field-kids-01-800.webp 800w, images/field-kids-01.webp 1280w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                    />
+                    <img
+                      src="images/field-kids-01-800.jpg"
+                      srcset="images/field-kids-01-800.jpg 800w, images/field-kids-01.jpg 1280w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                      width="800"
+                      height="654"
+                      loading="lazy"
+                      decoding="async"
+                      alt="Team members introducing the prototype to a class of students in school uniform"
+                      data-i18n-alt="field.alt.f06"
+                  /></picture>
+                </button>
+                <figcaption>
+                  <b>F06</b
+                  ><span data-i18n="field.f06">Introducing the project to a class.</span>
+                </figcaption>
+              </figure>
+              <figure class="field-item" style="--ar: 1.7931">
+                <button type="button" class="field-open" data-lb-type="video" data-lb-src="images/field-kids-02.mp4" data-lb-poster="images/field-kids-02-poster.jpg">
+                  <picture>
+                    <source type="image/webp" srcset="images/field-kids-02-poster.webp" />
+                    <img
+                      src="images/field-kids-02-poster.jpg"
+                      width="832"
+                      height="464"
+                      loading="lazy"
+                      decoding="async"
+                      alt="Video: a team member opens the black enclosure on a classroom desk to show the sensor pads"
+                      data-i18n-alt="field.alt.f07"
+                  /></picture>
+                  <svg class="icon play-badge" width="28" height="28" aria-hidden="true">
+                    <use href="#i-play" />
+                  </svg>
+                </button>
+                <figcaption>
+                  <b>F07</b
+                  ><span data-i18n="field.f07">Opening the enclosure to show the sensor pads.</span>
+                </figcaption>
+              </figure>
+              <figure class="field-item" style="--ar: 0.75">
+                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-03">
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="images/field-kids-03-800.webp 600w, images/field-kids-03.webp 960w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                    />
+                    <img
+                      src="images/field-kids-03-800.jpg"
+                      srcset="images/field-kids-03-800.jpg 600w, images/field-kids-03.jpg 960w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                      width="600"
+                      height="800"
+                      loading="lazy"
+                      decoding="async"
+                      alt="A student standing on the prototype while a laptop shows the readings"
+                      data-i18n-alt="field.alt.f08"
+                  /></picture>
+                </button>
+                <figcaption>
+                  <b>F08</b
+                  ><span data-i18n="field.f08">A student stands on the plate; the readings appear on the laptop.</span>
+                </figcaption>
+              </figure>
+              <figure class="field-item" style="--ar: 0.5625">
+                <button type="button" class="field-open" data-lb-type="video" data-lb-src="images/field-kids-04.mp4" data-lb-poster="images/field-kids-04-poster.jpg">
+                  <picture>
+                    <source type="image/webp" srcset="images/field-kids-04-poster.webp" />
+                    <img
+                      src="images/field-kids-04-poster.jpg"
+                      width="576"
+                      height="1024"
+                      loading="lazy"
+                      decoding="async"
+                      alt="Video: students gather around the prototype while a team member explains the readings"
+                      data-i18n-alt="field.alt.f09"
+                  /></picture>
+                  <svg class="icon play-badge" width="28" height="28" aria-hidden="true">
+                    <use href="#i-play" />
+                  </svg>
+                </button>
+                <figcaption>
+                  <b>F09</b
+                  ><span data-i18n="field.f09">Explaining the readings while students try the plate.</span>
+                </figcaption>
+              </figure>
+              <figure class="field-item" style="--ar: 1.3333">
+                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-05">
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="images/field-kids-05-800.webp 800w, images/field-kids-05.webp 1280w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                    />
+                    <img
+                      src="images/field-kids-05-800.jpg"
+                      srcset="images/field-kids-05-800.jpg 800w, images/field-kids-05.jpg 1280w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                      width="800"
+                      height="600"
+                      loading="lazy"
+                      decoding="async"
+                      alt="A class of students and the team gathered around the prototype and a laptop"
+                      data-i18n-alt="field.alt.f10"
+                  /></picture>
+                </button>
+                <figcaption>
+                  <b>F10</b
+                  ><span data-i18n="field.f10">The class after the demonstration.</span>
+                </figcaption>
+              </figure>
             </div>
           </div>
         </div>
@@ -1517,7 +1871,8 @@
                   </li>
                   <li data-i18n="learn.bounds.li3">
                     Data protected — anonymized by default, no child's face
-                    published, deletable on request.
+                    published without written parental consent, deletable on
+                    request.
                   </li>
                   <li data-i18n="learn.bounds.li4">
                     Real numbers only — every figure on this site is something
@@ -1713,6 +2068,58 @@
         </div>
       </div>
     </footer>
+
+    <!-- Lightbox (In the field gallery) -->
+    <div
+      class="lightbox"
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Photo viewer"
+      data-i18n-aria="a11y.viewer"
+      hidden
+    >
+      <button
+        type="button"
+        class="lb-btn lb-close"
+        aria-label="Close"
+        data-i18n-aria="a11y.close"
+      >
+        <svg class="icon" width="22" height="22"><use href="#i-close" /></svg>
+      </button>
+      <button
+        type="button"
+        class="lb-btn lb-prev"
+        aria-label="Previous"
+        data-i18n-aria="a11y.prev"
+      >
+        <svg class="icon" width="22" height="22"><use href="#i-arrow" /></svg>
+      </button>
+      <button
+        type="button"
+        class="lb-btn lb-next"
+        aria-label="Next"
+        data-i18n-aria="a11y.next"
+      >
+        <svg class="icon" width="22" height="22"><use href="#i-arrow" /></svg>
+      </button>
+      <figure class="lb-figure">
+        <picture class="lb-picture">
+          <source id="lbWebp" type="image/webp" />
+          <img id="lbImg" alt="" />
+        </picture>
+        <video
+          id="lbVideo"
+          muted
+          loop
+          playsinline
+          controls
+          preload="none"
+          hidden
+        ></video>
+        <figcaption><b id="lbCode"></b><span id="lbText"></span></figcaption>
+      </figure>
+    </div>
 
     <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
