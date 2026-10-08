@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=3" />
   </head>
   <body>
     <!-- Icon sprite -->
@@ -415,12 +415,6 @@
     <header class="nav" id="nav">
       <div class="wrap nav-inner">
         <a href="#top" class="wordmark">SoleShift <span>Kids</span></a>
-        <nav class="nav-links" aria-label="Primary">
-          <a href="#how-it-works" data-i18n="nav.how">How It Works</a>
-          <a href="#for-schools" data-i18n="nav.schools">For Schools</a>
-          <a href="#learn-more" data-i18n="nav.learn">Learn More</a>
-          <a href="#faq" data-i18n="nav.faq">FAQ</a>
-        </nav>
         <div class="nav-actions">
           <div class="lang-switch" data-lang-switch>
             <button
@@ -475,16 +469,29 @@
           <span></span><span></span><span></span>
         </button>
       </div>
+      <nav
+        class="section-nav"
+        aria-label="Page sections"
+        data-i18n-aria="nav.sections"
+      >
+        <div class="wrap section-nav-inner">
+          <a href="#how-it-works" data-i18n="nav.method">Methodology</a>
+          <a href="#build-log" data-i18n="nav.prototype">Prototype</a>
+          <a href="#in-the-field" data-i18n="nav.photos">Photos</a>
+          <a href="#sample-report" data-i18n="nav.report">Sample report</a>
+          <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
+          <a href="#for-schools" data-i18n="nav.schools">For Schools</a>
+          <a href="#learn-more" data-i18n="nav.about">About</a>
+          <a href="#team" data-i18n="nav.team">Team</a>
+          <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        </div>
+      </nav>
       <div class="nav-mobile" id="navMobile">
         <div class="nav-mobile-lang">
           <button type="button" class="lang-option" data-lang="en">EN</button>
           <button type="button" class="lang-option" data-lang="ru">RU</button>
           <button type="button" class="lang-option" data-lang="az">AZ</button>
         </div>
-        <a href="#how-it-works" data-i18n="nav.how">How It Works</a>
-        <a href="#for-schools" data-i18n="nav.schools">For Schools</a>
-        <a href="#learn-more" data-i18n="nav.learn">Learn More</a>
-        <a href="#faq" data-i18n="nav.faq">FAQ</a>
         <a
           href="mailto:hello@soleshiftkids.org?subject=Screening%20request&body=Hi%20SoleShift%20Kids%20team%2C%0A%0AWe%27d%20like%20to%20request%20a%20foot%20screening.%0A%0ASchool%2Forganization%3A%0ALocation%3A%0APreferred%20dates%3A%0A%0AThanks%21"
           class="btn btn-primary btn-sm"
@@ -1275,12 +1282,79 @@
           <div class="field-block reveal">
             <div class="log-head">
               <span data-i18n="field.kids.title">With the children</span
-              ><span>F06–F10</span>
+              ><span>F06–F13</span>
             </div>
-            <p class="field-note" data-i18n="field.kids.body">
-              We showed the prototype to a school class: how it works, what it measures, and what it doesn't. Photos are published with written parental consent; no names are shared.
-            </p>
-            <div class="field-grid">
+            <p class="field-note" data-i18n="field.kids.body">We showed the prototype to a school class: how it works, what it measures, and what it doesn't. Photos are published with written parental consent; no names are shared.</p>
+            <div class="field-split">
+              <div class="field-grid field-videos">
+              <figure class="field-item field-video">
+                <button
+                  type="button"
+                  class="field-open"
+                  data-lb-type="video"
+                  data-lb-src="images/field-kids-02.mp4"
+                  data-lb-poster="images/field-kids-02-poster.jpg"
+                  aria-label="Video: a team member opens the black enclosure on a classroom desk to show the sensor pads"
+                  data-i18n-aria="field.alt.f06"
+                >
+                  <video
+                    class="field-preview"
+                    src="images/field-kids-02.mp4"
+                    poster="images/field-kids-02-poster.jpg"
+                    width="832"
+                    height="464"
+                    style="object-position: 50% 50%"
+                    muted
+                    loop
+                    playsinline
+                    preload="none"
+                    aria-hidden="true"
+                    tabindex="-1"
+                  ></video>
+                  <svg class="icon play-badge" width="28" height="28" aria-hidden="true">
+                    <use href="#i-play" />
+                  </svg>
+                </button>
+                <figcaption>
+                  <b>F06</b
+                  ><span data-i18n="field.f06">Opening the enclosure to show the sensor pads.</span>
+                </figcaption>
+              </figure>
+              <figure class="field-item field-video">
+                <button
+                  type="button"
+                  class="field-open"
+                  data-lb-type="video"
+                  data-lb-src="images/field-kids-04.mp4"
+                  data-lb-poster="images/field-kids-04-poster.jpg"
+                  aria-label="Video: students gather around the prototype while a team member explains the readings"
+                  data-i18n-aria="field.alt.f07"
+                >
+                  <video
+                    class="field-preview"
+                    src="images/field-kids-04.mp4"
+                    poster="images/field-kids-04-poster.jpg"
+                    width="576"
+                    height="1024"
+                    style="object-position: 50% 72%"
+                    muted
+                    loop
+                    playsinline
+                    preload="none"
+                    aria-hidden="true"
+                    tabindex="-1"
+                  ></video>
+                  <svg class="icon play-badge" width="28" height="28" aria-hidden="true">
+                    <use href="#i-play" />
+                  </svg>
+                </button>
+                <figcaption>
+                  <b>F07</b
+                  ><span data-i18n="field.f07">Explaining the readings while students try the plate.</span>
+                </figcaption>
+              </figure>
+              </div>
+              <div class="field-grid field-photos">
               <figure class="field-item" style="--ar: 1.2225">
                 <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-01">
                   <picture>
@@ -1298,34 +1372,87 @@
                       loading="lazy"
                       decoding="async"
                       alt="Team members introducing the prototype to a class of students in school uniform"
-                      data-i18n-alt="field.alt.f06"
+                      data-i18n-alt="field.alt.f08"
                   /></picture>
                 </button>
                 <figcaption>
-                  <b>F06</b
-                  ><span data-i18n="field.f06">Introducing the project to a class.</span>
+                  <b>F08</b
+                  ><span data-i18n="field.f08">Introducing the project to a class.</span>
                 </figcaption>
               </figure>
               <figure class="field-item" style="--ar: 1.7931">
-                <button type="button" class="field-open" data-lb-type="video" data-lb-src="images/field-kids-02.mp4" data-lb-poster="images/field-kids-02-poster.jpg">
+                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-06">
                   <picture>
-                    <source type="image/webp" srcset="images/field-kids-02-poster.webp" />
+                    <source
+                      type="image/webp"
+                      srcset="images/field-kids-06-800.webp 800w, images/field-kids-06.webp 832w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                    />
                     <img
-                      src="images/field-kids-02-poster.jpg"
-                      width="832"
-                      height="464"
+                      src="images/field-kids-06-800.jpg"
+                      srcset="images/field-kids-06-800.jpg 800w, images/field-kids-06.jpg 832w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                      width="800"
+                      height="446"
                       loading="lazy"
                       decoding="async"
-                      alt="Video: a team member opens the black enclosure on a classroom desk to show the sensor pads"
-                      data-i18n-alt="field.alt.f07"
+                      alt="Students' hands on the grey sensor pads inside the open black enclosure"
+                      data-i18n-alt="field.alt.f09"
                   /></picture>
-                  <svg class="icon play-badge" width="28" height="28" aria-hidden="true">
-                    <use href="#i-play" />
-                  </svg>
                 </button>
                 <figcaption>
-                  <b>F07</b
-                  ><span data-i18n="field.f07">Opening the enclosure to show the sensor pads.</span>
+                  <b>F09</b
+                  ><span data-i18n="field.f09">Hands on the pads: feeling where the sensors sit.</span>
+                </figcaption>
+              </figure>
+              <figure class="field-item" style="--ar: 0.5625">
+                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-08">
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="images/field-kids-08-800.webp 450w, images/field-kids-08.webp 576w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                    />
+                    <img
+                      src="images/field-kids-08-800.jpg"
+                      srcset="images/field-kids-08-800.jpg 450w, images/field-kids-08.jpg 576w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                      width="450"
+                      height="800"
+                      loading="lazy"
+                      decoding="async"
+                      alt="A team member explains the prototype to a group of students around a desk"
+                      data-i18n-alt="field.alt.f10"
+                  /></picture>
+                </button>
+                <figcaption>
+                  <b>F10</b
+                  ><span data-i18n="field.f10">Answering the class's questions about what the plate measures.</span>
+                </figcaption>
+              </figure>
+              <figure class="field-item" style="--ar: 0.5625">
+                <button type="button" class="field-open" data-lb-type="image" data-lb-src="images/field-kids-07">
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="images/field-kids-07-800.webp 450w, images/field-kids-07.webp 576w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                    />
+                    <img
+                      src="images/field-kids-07-800.jpg"
+                      srcset="images/field-kids-07-800.jpg 450w, images/field-kids-07.jpg 576w"
+                      sizes="(max-width: 600px) calc(100vw - 48px), 400px"
+                      width="450"
+                      height="800"
+                      loading="lazy"
+                      decoding="async"
+                      alt="A student presses the closed prototype on a desk while classmates watch, a laptop in front"
+                      data-i18n-alt="field.alt.f11"
+                  /></picture>
+                </button>
+                <figcaption>
+                  <b>F11</b
+                  ><span data-i18n="field.f11">A student presses the plate to see the readings change.</span>
                 </figcaption>
               </figure>
               <figure class="field-item" style="--ar: 0.75">
@@ -1345,34 +1472,12 @@
                       loading="lazy"
                       decoding="async"
                       alt="A student standing on the prototype while a laptop shows the readings"
-                      data-i18n-alt="field.alt.f08"
+                      data-i18n-alt="field.alt.f12"
                   /></picture>
                 </button>
                 <figcaption>
-                  <b>F08</b
-                  ><span data-i18n="field.f08">A student stands on the plate; the readings appear on the laptop.</span>
-                </figcaption>
-              </figure>
-              <figure class="field-item" style="--ar: 0.5625">
-                <button type="button" class="field-open" data-lb-type="video" data-lb-src="images/field-kids-04.mp4" data-lb-poster="images/field-kids-04-poster.jpg">
-                  <picture>
-                    <source type="image/webp" srcset="images/field-kids-04-poster.webp" />
-                    <img
-                      src="images/field-kids-04-poster.jpg"
-                      width="576"
-                      height="1024"
-                      loading="lazy"
-                      decoding="async"
-                      alt="Video: students gather around the prototype while a team member explains the readings"
-                      data-i18n-alt="field.alt.f09"
-                  /></picture>
-                  <svg class="icon play-badge" width="28" height="28" aria-hidden="true">
-                    <use href="#i-play" />
-                  </svg>
-                </button>
-                <figcaption>
-                  <b>F09</b
-                  ><span data-i18n="field.f09">Explaining the readings while students try the plate.</span>
+                  <b>F12</b
+                  ><span data-i18n="field.f12">A student stands on the plate; the readings appear on the laptop.</span>
                 </figcaption>
               </figure>
               <figure class="field-item" style="--ar: 1.3333">
@@ -1392,14 +1497,15 @@
                       loading="lazy"
                       decoding="async"
                       alt="A class of students and the team gathered around the prototype and a laptop"
-                      data-i18n-alt="field.alt.f10"
+                      data-i18n-alt="field.alt.f13"
                   /></picture>
                 </button>
                 <figcaption>
-                  <b>F10</b
-                  ><span data-i18n="field.f10">The class after the demonstration.</span>
+                  <b>F13</b
+                  ><span data-i18n="field.f13">The class after the demonstration.</span>
                 </figcaption>
               </figure>
+              </div>
             </div>
           </div>
         </div>
@@ -1826,34 +1932,6 @@
             </div>
             <div class="acc-item reveal">
               <button class="acc-trigger">
-                <span data-i18n="learn.team.title">Team &amp; roles</span
-                ><svg class="icon acc-icon" width="18" height="18">
-                  <use href="#i-plus" />
-                </svg>
-              </button>
-              <div class="acc-panel">
-                <ul class="plain-list">
-                  <li data-i18n="learn.team.li1">
-                    Founder &amp; Project Lead — overall direction, pilot, and
-                    partnerships.
-                  </li>
-                  <li data-i18n="learn.team.li2">
-                    Hardware Lead — scanner design and build.
-                  </li>
-                  <li data-i18n="learn.team.li3">
-                    Software &amp; AI Lead — analysis pipeline and reporting.
-                  </li>
-                  <li data-i18n="learn.team.li4">
-                    Web &amp; Design Lead — site, reports, and documentation.
-                  </li>
-                </ul>
-                <p class="panel-note" data-i18n="learn.team.note">
-                  Names will be added as the team is finalized.
-                </p>
-              </div>
-            </div>
-            <div class="acc-item reveal">
-              <button class="acc-trigger">
                 <span data-i18n="learn.bounds.title">Our boundaries</span
                 ><svg class="icon acc-icon" width="18" height="18">
                   <use href="#i-plus" />
@@ -1888,6 +1966,38 @@
                   </li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team -->
+      <section class="section" id="team">
+        <div class="wrap">
+          <div class="section-head reveal center">
+            <p class="eyebrow" data-i18n="team.eyebrow">Team</p>
+            <h2 data-i18n="team.h2">The people building SoleShift Kids.</h2>
+          </div>
+          <div class="team-grid">
+            <div class="card team-card reveal">
+              <span class="team-initials" aria-hidden="true">IT</span>
+              <h3>Ilys Taghiyev</h3>
+            </div>
+            <div class="card team-card reveal">
+              <span class="team-initials" aria-hidden="true">YE</span>
+              <h3>Youssef El Haroun</h3>
+            </div>
+            <div class="card team-card reveal">
+              <span class="team-initials" aria-hidden="true">VM</span>
+              <h3>Vahid Musayev</h3>
+            </div>
+            <div class="card team-card reveal">
+              <span class="team-initials" aria-hidden="true">JA</span>
+              <h3>Jeyla Ahmadzada</h3>
+            </div>
+            <div class="card team-card reveal">
+              <span class="team-initials" aria-hidden="true">MA</span>
+              <h3>Mikayil Ahmadbayli</h3>
             </div>
           </div>
         </div>
@@ -2121,7 +2231,7 @@
       </figure>
     </div>
 
-    <script src="js/i18n.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/i18n.js?v=3"></script>
+    <script src="js/main.js?v=3"></script>
   </body>
 </html>

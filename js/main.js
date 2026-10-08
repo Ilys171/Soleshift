@@ -217,13 +217,14 @@
       var fig = btn.closest(".field-item");
       var src = btn.getAttribute("data-lb-src");
       var thumb = btn.querySelector("img");
+      var label = thumb ? thumb.alt : btn.getAttribute("aria-label");
       lbCode.textContent = fig.querySelector("figcaption b").textContent;
       lbText.textContent = fig.querySelector("figcaption span").textContent;
       if (btn.getAttribute("data-lb-type") === "video") {
         lbImg.parentNode.hidden = true;
         lbVideo.hidden = false;
         lbVideo.poster = btn.getAttribute("data-lb-poster");
-        lbVideo.setAttribute("aria-label", thumb.alt);
+        lbVideo.setAttribute("aria-label", label);
         lbVideo.src = src;
         if (!reduceMotion) lbVideo.play().catch(function () {});
       } else {
@@ -233,7 +234,7 @@
         lbImg.parentNode.hidden = false;
         lbWebp.srcset = src + ".webp";
         lbImg.src = src + ".jpg";
-        lbImg.alt = thumb.alt;
+        lbImg.alt = label;
       }
     }
 
@@ -288,6 +289,77 @@
           first.focus();
         }
       }
+    });
+  }
+
+  /* ---------- Field video previews: silent loop, only while on screen ---------- */
+  var previews = document.querySelectorAll(".field-preview");
+  if (previews.length && !reduceMotion && "IntersectionObserver" in window) {
+    var previewObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          var v = entry.target;
+          var btn = v.closest(".field-open");
+          if (entry.isIntersecting) {
+            v.play().then(
+              function () {
+                btn.classList.add("is-playing");
+              },
+              function () {},
+            );
+          } else {
+            v.pause();
+            btn.classList.remove("is-playing");
+          }
+        });
+      },
+      { threshold: 0.4 },
+    );
+    previews.forEach(function (v) {
+      previewObserver.observe(v);
+    });
+  }
+
+  /* ---------- Section buttons: highlight the section in view ---------- */
+  var sectionNav = document.querySelector(".section-nav-inner");
+  if (sectionNav && "IntersectionObserver" in window) {
+    var navLinks = {};
+    sectionNav.querySelectorAll("a").forEach(function (a) {
+      navLinks[a.getAttribute("href").slice(1)] = a;
+    });
+    var visible = {};
+    var sectionObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          visible[entry.target.id] = entry.isIntersecting;
+        });
+        // First section (in page order) crossing the band below the header wins
+        var current = null;
+        Object.keys(navLinks).some(function (id) {
+          if (visible[id]) current = id;
+          return visible[id];
+        });
+        Object.keys(navLinks).forEach(function (id) {
+          var on = id === current;
+          navLinks[id].classList.toggle("active", on);
+          if (on) navLinks[id].setAttribute("aria-current", "true");
+          else navLinks[id].removeAttribute("aria-current");
+        });
+        if (current) {
+          // Keep the active button visible in the scrollable row (phones)
+          var a = navLinks[current];
+          var left = a.offsetLeft - (sectionNav.clientWidth - a.offsetWidth) / 2;
+          sectionNav.scrollTo({
+            left: left,
+            behavior: reduceMotion ? "auto" : "smooth",
+          });
+        }
+      },
+      { rootMargin: "-30% 0px -60% 0px" },
+    );
+    Object.keys(navLinks).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) sectionObserver.observe(el);
     });
   }
 
