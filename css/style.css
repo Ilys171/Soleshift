@@ -1601,15 +1601,11 @@ ul {
   }
   /* tablets: two equal columns, so the vertical video stays tall and no
      single photo outgrows the class photo on top */
-  .field-videos,
-  .field-photos {
+  .field-videos {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
     align-items: start;
-  }
-  .field-photos .field-trio {
-    grid-column: 1 / -1;
   }
 }
 @media (max-width: 480px) {
