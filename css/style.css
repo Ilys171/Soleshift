@@ -1496,7 +1496,7 @@ ul {
   }
 }
 
-/* ===== In the field: two blocks, same frame language as the build log ===== */
+/* ===== In the field: one block per visit, same frame language as the build log ===== */
 .field-block {
   border: 1px solid var(--border);
   background: var(--surface);
