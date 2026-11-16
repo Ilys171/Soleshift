@@ -77,8 +77,11 @@
     var target = parseFloat(el.getAttribute("data-count"));
     var prefix = el.getAttribute("data-prefix") || "";
     var suffix = el.getAttribute("data-suffix") || "";
+    var fmt = function (n) {
+      return n.toLocaleString("en-US");
+    };
     if (reduceMotion || target === 0) {
-      el.textContent = prefix + target + suffix;
+      el.textContent = prefix + fmt(target) + suffix;
       return;
     }
     var duration = 1200;
@@ -88,9 +91,9 @@
       var progress = Math.min((ts - start) / duration, 1);
       var eased = 1 - Math.pow(1 - progress, 3);
       var value = Math.round(eased * target);
-      el.textContent = prefix + value + suffix;
+      el.textContent = prefix + fmt(value) + suffix;
       if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = prefix + target + suffix;
+      else el.textContent = prefix + fmt(target) + suffix;
     }
     requestAnimationFrame(step);
   }
@@ -363,7 +366,7 @@
     });
   }
 
-  /* ---------- Hero point cloud (foot made of dots) ---------- */
+  /* ---------- Hero pressure map (dotted foot outline + the 8 pads) ---------- */
   var svg = document.getElementById("pointCloud");
   if (svg) {
     var NS = "http://www.w3.org/2000/svg";
@@ -415,9 +418,8 @@
       circle.setAttribute("cx", p.x.toFixed(1));
       circle.setAttribute("cy", p.y.toFixed(1));
       circle.setAttribute("r", r.toFixed(2));
-      var useBright = Math.random() < 0.35;
-      circle.setAttribute("fill", useBright ? "#4CA79F" : "#0C6E77");
-      circle.setAttribute("opacity", (0.5 + depth * 0.35).toFixed(2));
+      circle.setAttribute("fill", "#0C6E77");
+      circle.setAttribute("opacity", (0.12 + depth * 0.12).toFixed(2));
       if (!reduceMotion) {
         circle.style.opacity = "0";
         circle.style.transformOrigin =
@@ -428,6 +430,38 @@
         circle.style.transitionDelay = Math.random() * 900 + "ms";
       }
       frag.appendChild(circle);
+    });
+
+    // Same layout as the prototype: toes, forefoot, midfoot, heel; fill = load share.
+    var pads = [
+      { x: 108, y: 40, load: 0.35 },
+      { x: 148, y: 42, load: 0.25 },
+      { x: 90, y: 108, load: 0.75 },
+      { x: 148, y: 114, load: 0.6 },
+      { x: 98, y: 182, load: 0.08 },
+      { x: 146, y: 184, load: 0.25 },
+      { x: 106, y: 250, load: 0.9 },
+      { x: 138, y: 252, load: 0.8 },
+    ];
+    pads.forEach(function (p) {
+      var pad = document.createElementNS(NS, "circle");
+      pad.setAttribute("cx", p.x);
+      pad.setAttribute("cy", p.y);
+      pad.setAttribute("r", 17);
+      pad.setAttribute("fill", "#1FA9A0");
+      pad.setAttribute("fill-opacity", (0.1 + p.load * 0.8).toFixed(2));
+      pad.setAttribute("stroke", "#0C6E77");
+      pad.setAttribute("stroke-width", "1.5");
+      pad.setAttribute("opacity", "1");
+      if (!reduceMotion) {
+        pad.style.opacity = "0";
+        pad.style.transformOrigin = p.x + "px " + p.y + "px";
+        pad.style.transform = "scale(0.2)";
+        pad.style.transition =
+          "opacity .5s ease, transform .5s cubic-bezier(.2,.8,.2,1)";
+        pad.style.transitionDelay = 700 + Math.random() * 500 + "ms";
+      }
+      frag.appendChild(pad);
     });
     svg.appendChild(frag);
 

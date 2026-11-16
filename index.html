@@ -6,7 +6,7 @@
     <title>SoleShift Kids</title>
     <meta
       name="description"
-      content="SoleShift Kids uses 3D scanning and automated analysis to screen children's feet, generate clear reports for parents, and connect families to specialists with consent."
+      content="SoleShift Kids is a foot-pressure screening platform: eight pressure sensors record foot contact and load distribution for orthopedic specialist assessment. 602 participants, 328 measurement sessions, 10 sites."
     />
     <link rel="icon" href="data:," />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css?v=5" />
+    <link rel="stylesheet" href="css/style.css?v=6" />
   </head>
   <body>
     <!-- Icon sprite -->
@@ -421,9 +421,9 @@
           data-i18n-aria="nav.sections"
         >
           <a href="#how-it-works" data-i18n="nav.method">Methodology</a>
+          <a href="#results" data-i18n="nav.results">Results</a>
           <a href="#build-log" data-i18n="nav.prototype">Prototype</a>
           <a href="#in-the-field" data-i18n="nav.photos">Photos</a>
-          <a href="#sample-report" data-i18n="nav.report">Report</a>
           <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
           <a href="#for-schools" data-i18n="nav.schools">Schools</a>
           <a href="#learn-more" data-i18n="nav.about">About</a>
@@ -493,9 +493,9 @@
           <button type="button" class="lang-option" data-lang="az">AZ</button>
         </div>
         <a href="#how-it-works" data-i18n="nav.method">Methodology</a>
+        <a href="#results" data-i18n="nav.results">Results</a>
         <a href="#build-log" data-i18n="nav.prototype">Prototype</a>
         <a href="#in-the-field" data-i18n="nav.photos">Photos</a>
-        <a href="#sample-report" data-i18n="nav.report">Report</a>
         <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
         <a href="#for-schools" data-i18n="nav.schools">Schools</a>
         <a href="#learn-more" data-i18n="nav.about">About</a>
@@ -521,10 +521,11 @@
             </p>
             <h1 data-i18n="hero.h1">Early foot screening for every child.</h1>
             <p class="lede" data-i18n="hero.lede">
-              SoleShift Kids uses 3D scanning and automated analysis to capture
-              a child's foot in seconds, generate a clear report for parents,
-              and — with their consent — connect the family to the right
-              specialist. A screening system, not a medical diagnosis.
+              SoleShift Kids is a foot-pressure screening platform. A child
+              stands on a plate fitted with eight pressure sensors; we record
+              how the foot contacts the surface and how load is distributed,
+              and turn it into a structured report for an orthopedic
+              specialist to assess. A screening tool, not a medical diagnosis.
             </p>
             <div class="hero-ctas">
               <a
@@ -560,18 +561,18 @@
               ></svg>
             </div>
             <div class="float-card fc-1">
-              <span class="fc-label" data-i18n="hero.fc.scanTime"
-                >SCAN TIME</span
-              ><span class="fc-value">11 s</span>
+              <span class="fc-label" data-i18n="hero.fc.pads"
+                >PRESSURE PADS</span
+              ><span class="fc-value">8</span>
             </div>
             <div class="float-card fc-2">
-              <span class="fc-label" data-i18n="hero.fc.footLength"
-                >FOOT LENGTH</span
-              ><span class="fc-value">21.4 cm</span>
+              <span class="fc-label" data-i18n="hero.fc.participants"
+                >PARTICIPANTS</span
+              ><span class="fc-value">602</span>
             </div>
             <div class="float-card fc-3">
-              <span class="fc-label" data-i18n="hero.fc.report">REPORT</span
-              ><span class="fc-value" data-i18n="hero.fc.ready">Ready</span>
+              <span class="fc-label" data-i18n="hero.fc.sessions">SESSIONS</span
+              ><span class="fc-value">328</span>
             </div>
           </div>
         </div>
@@ -581,32 +582,27 @@
       <section class="trust-strip reveal">
         <div class="wrap trust-grid">
           <div class="trust-stat">
-            <span
-              class="stat-num"
-              data-count="15"
-              data-prefix="&lt; "
-              data-suffix=" s"
-              >0 s</span
-            ><span class="stat-label" data-i18n="trust.scanPerFoot"
-              >Scan per foot</span
+            <span class="stat-num" data-count="602">602</span
+            ><span class="stat-label" data-i18n="trust.participants"
+              >Participants reached</span
             >
           </div>
           <div class="trust-stat">
-            <span class="stat-num" data-count="100" data-suffix="%">0%</span
-            ><span class="stat-label" data-i18n="trust.parentalConsent"
-              >Parental consent</span
+            <span class="stat-num" data-count="328">328</span
+            ><span class="stat-label" data-i18n="trust.sessions"
+              >Measurement sessions</span
             >
           </div>
           <div class="trust-stat">
-            <span class="stat-num" data-count="92">0</span
-            ><span class="stat-label" data-i18n="trust.screenings"
-              >Screenings completed</span
+            <span class="stat-num" data-count="10">10</span
+            ><span class="stat-label" data-i18n="trust.sites"
+              >Implementation sites</span
             >
           </div>
           <div class="trust-stat">
-            <span class="stat-num" data-count="1">0</span
-            ><span class="stat-label" data-i18n="trust.reportPerChild"
-              >Report per child, automatically</span
+            <span class="stat-num" data-count="173">173</span
+            ><span class="stat-label" data-i18n="trust.insoles"
+              >Insole pairs delivered</span
             >
           </div>
         </div>
@@ -664,7 +660,7 @@
                   <svg class="icon" width="18" height="18">
                     <use href="#i-check" /></svg
                   ><span data-i18n="scope.is.li1"
-                    >Digital screening + 3D foot geometry.</span
+                    >Pressure-based screening: foot contact and load distribution.</span
                   >
                 </li>
                 <li>
@@ -711,7 +707,7 @@
                   <svg class="icon" width="18" height="18">
                     <use href="#i-info" /></svg
                   ><span data-i18n="scope.isnot.li3"
-                    >Doesn't manufacture insoles.</span
+                    >Doesn't manufacture insoles — partners do.</span
                   >
                 </li>
                 <li>
@@ -719,6 +715,13 @@
                     <use href="#i-info" /></svg
                   ><span data-i18n="scope.isnot.li4"
                     >No data stored without consent.</span
+                  >
+                </li>
+                <li>
+                  <svg class="icon" width="18" height="18">
+                    <use href="#i-info" /></svg
+                  ><span data-i18n="scope.isnot.li5"
+                    >Not a 3D scanner — it doesn't measure foot shape.</span
                   >
                 </li>
               </ul>
@@ -736,7 +739,7 @@
           <div class="section-head reveal center">
             <p class="eyebrow" data-i18n="how.eyebrow">How it works</p>
             <h2 data-i18n="how.h2">
-              From footplate to specialist in five steps.
+              From pressure plate to specialist in five steps.
             </h2>
           </div>
           <div class="steps-flow">
@@ -762,19 +765,19 @@
               <svg class="icon step-icon" width="26" height="26">
                 <use href="#i-scan" />
               </svg>
-              <h3 data-i18n="how.s1.title">3D scan</h3>
+              <h3 data-i18n="how.s1.title">Pressure measurement</h3>
               <p data-i18n="how.s1.body">
-                The child stands on the plate for a few seconds.
+                The child stands on the plate; eight sensors record contact and load.
               </p>
             </div>
             <div class="step-card reveal">
               <span class="step-num">02</span>
               <svg class="icon step-icon" width="26" height="26">
-                <use href="#i-cpu" />
+                <use href="#i-check" />
               </svg>
-              <h3 data-i18n="how.s2.title">Automated analysis</h3>
+              <h3 data-i18n="how.s2.title">Quality control</h3>
               <p data-i18n="how.s2.body">
-                Length, width, arch height, and shape are extracted.
+                Each session is checked for a stable, complete reading before it's kept.
               </p>
             </div>
             <div class="step-card reveal">
@@ -782,30 +785,128 @@
               <svg class="icon step-icon" width="26" height="26">
                 <use href="#i-doc" />
               </svg>
-              <h3 data-i18n="how.s3.title">Clear report</h3>
+              <h3 data-i18n="how.s3.title">Structured report</h3>
               <p data-i18n="how.s3.body">
-                Plain-language measurements, no diagnosis.
+                Load per foot region, in a format a specialist can assess.
               </p>
             </div>
             <div class="step-card step-emphasis reveal">
               <span class="step-num">04</span>
               <svg class="icon step-icon" width="26" height="26">
-                <use href="#i-user" />
+                <use href="#i-clinic" />
               </svg>
-              <h3 data-i18n="how.s4.title">Parents receive the results</h3>
-              <p data-i18n="how.s4.body">The family sees it first. Always.</p>
+              <h3 data-i18n="how.s4.title">Specialist assessment</h3>
+              <p data-i18n="how.s4.body">
+                An orthopedic specialist reviews the data and decides — not the software.
+              </p>
             </div>
             <div class="step-card reveal">
               <span class="step-num">05</span>
               <svg class="icon step-icon" width="26" height="26">
-                <use href="#i-share" />
+                <use href="#i-heart" />
               </svg>
-              <h3 data-i18n="how.s5.title">Optional partner referral</h3>
+              <h3 data-i18n="how.s5.title">Families and next steps</h3>
               <p data-i18n="how.s5.body">
-                With separate consent, a partner clinic takes it from there.
+                Families are informed; where recommended, partners make custom insoles.
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section class="section" id="results">
+        <div class="wrap">
+          <div class="section-head reveal center">
+            <p class="eyebrow" data-i18n="results.eyebrow">Results to date</p>
+            <h2 data-i18n="results.h2">What has actually happened.</h2>
+            <p class="section-sub" data-i18n="results.intro">
+              Figures from the project documentation, reviewed by our
+              scientific supervisor, Dr. Aydin Gahramanov (letter of 17 May
+              2025).
+            </p>
+          </div>
+          <div class="results-grid">
+            <div class="card result-group reveal">
+              <h3>
+                <svg class="icon" width="20" height="20" aria-hidden="true">
+                  <use href="#i-school" /></svg
+                ><span data-i18n="results.g1">Reach</span>
+              </h3>
+              <ul class="result-list">
+                <li class="result-row">
+                  <span class="stat-num" data-count="10">10</span>
+                  <span class="result-label" data-i18n="results.sites">implementation sites</span>
+                  <span class="result-sub" data-i18n="results.sites.sub">8 rural schools and 2 orthopedic centers</span>
+                </li>
+                <li class="result-row">
+                  <span class="stat-num" data-count="602">602</span>
+                  <span class="result-label" data-i18n="results.participants">unique participants</span>
+                  <span class="result-sub" data-i18n="results.participants.sub">including 473 students from rural schools</span>
+                </li>
+                <li class="result-row">
+                  <span class="stat-num" data-count="328">328</span>
+                  <span class="result-label" data-i18n="results.sessions">measurement sessions conducted</span>
+                </li>
+              </ul>
+            </div>
+            <div class="card result-group reveal">
+              <h3>
+                <svg class="icon" width="20" height="20" aria-hidden="true">
+                  <use href="#i-clinic" /></svg
+                ><span data-i18n="results.g2">Specialist pathway</span>
+              </h3>
+              <ul class="result-list">
+                <li class="result-row">
+                  <span class="stat-num" data-count="276">276</span>
+                  <span class="result-label" data-i18n="results.reviewed">participants' data reviewed by orthopedic specialists</span>
+                </li>
+                <li class="result-row">
+                  <span class="stat-num" data-count="216">216</span>
+                  <span class="result-label" data-i18n="results.recommended">participants recommended custom orthopedic insoles</span>
+                </li>
+                <li class="result-row">
+                  <span class="stat-num" data-count="173">173</span>
+                  <span class="result-label" data-i18n="results.delivered">pairs of insoles produced and delivered</span>
+                  <span class="result-sub" data-i18n="results.delivered.sub">through partner organizations</span>
+                </li>
+              </ul>
+            </div>
+            <div class="card result-group reveal">
+              <h3>
+                <svg class="icon" width="20" height="20" aria-hidden="true">
+                  <use href="#i-user" /></svg
+                ><span data-i18n="results.g3">Education and capacity</span>
+              </h3>
+              <ul class="result-list">
+                <li class="result-row">
+                  <span class="stat-num" data-count="1570">1,570</span>
+                  <span class="result-label" data-i18n="results.educated">students, parents and educators</span>
+                  <span class="result-sub" data-i18n="results.educated.sub">reached through foot-health education sessions</span>
+                </li>
+                <li class="result-row">
+                  <span class="stat-num" data-count="105">105</span>
+                  <span class="result-label" data-i18n="results.trained">local coordinators and site staff trained</span>
+                  <span class="result-sub" data-i18n="results.trained.sub">in running sessions, recording data and referral</span>
+                </li>
+                <li class="result-row">
+                  <span class="stat-num" data-count="4">4</span>
+                  <span class="result-label" data-i18n="results.partners">partner organizations</span>
+                  <span class="result-sub" data-i18n="results.partners.sub">in manufacturing and logistics</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p class="note-inline results-note reveal">
+            <svg class="icon" width="16" height="16">
+              <use href="#i-info" />
+            </svg>
+            <span data-i18n="results.note"
+              >These figures confirm documented project activity. They are not
+              a clinical validation, a medical device certification or
+              regulatory approval.</span
+            >
+          </p>
         </div>
       </section>
 
@@ -829,12 +930,32 @@
               ><span class="spec-v">ESP32 dev module</span>
             </div>
             <div class="spec">
-              <span class="spec-k">Data link</span
-              ><span class="spec-v">Serial · 115200 baud</span>
+              <span class="spec-k">Measures</span
+              ><span class="spec-v">Load per region · not 3D</span>
             </div>
             <div class="spec">
               <span class="spec-k">Stage</span
               ><span class="spec-v">Enclosed prototype</span>
+            </div>
+          </div>
+
+          <div class="measure-note reveal">
+            <svg class="icon" width="20" height="20" aria-hidden="true">
+              <use href="#i-info" />
+            </svg>
+            <div>
+              <strong data-i18n="build.note.title"
+                >What the plate measures — and what it doesn't</strong
+              >
+              <p data-i18n="build.note.body">
+                Eight force-sensing pads, laid out in the shape of a foot,
+                report how much load each region of the sole places on the
+                plate. That gives the contact pattern and the pressure
+                distribution across heel, midfoot and forefoot, and between
+                left and right. The hardware does not capture the foot's 3D
+                shape, so it does not measure foot length, width or arch
+                height.
+              </p>
             </div>
           </div>
 
@@ -1158,7 +1279,7 @@
               <span data-i18n="field.mentor.title">With Dr. Aydin Gahramanov</span
               ><span>F01–F05</span>
             </div>
-            <p class="field-note" data-i18n="field.mentor.body">Dr. Aydin Gahramanov — Doctor of Medical Sciences, chair of AO Trauma Azerbaijan and SICOT's national representative for Azerbaijan — reviewed the prototype at the Research Institute of Traumatology and Orthopedics and approved the project.</p>
+            <p class="field-note" data-i18n="field.mentor.body">Dr. Aydin Gahramanov — Doctor of Medical Sciences, Head of the Department of Adult Traumatology and Orthopedics at the Scientific Research Institute of Traumatology and Orthopedics, Chair of AO Trauma Azerbaijan and SICOT National Delegate for Azerbaijan — served as the project's scientific supervisor and personally reviewed the prototype.</p>
             <div class="field-stack">
               <div class="field-row">
                 <figure class="field-item" style="--ar: 0.75">
@@ -1285,7 +1406,7 @@
                   </button>
                   <figcaption>
                     <b>F05</b
-                    ><span data-i18n="field.f05">The team with Dr. Gahramanov after he approved the project.</span>
+                    ><span data-i18n="field.f05">The team with Dr. Gahramanov after the prototype review.</span>
                   </figcaption>
                 </figure>
               </div>
@@ -1795,7 +1916,7 @@
         <div class="wrap narrow report-layout">
           <div class="reveal report-side">
             <p class="eyebrow" data-i18n="report.eyebrow">Sample report</p>
-            <h2 data-i18n="report.h2">A report a parent can actually read.</h2>
+            <h2 data-i18n="report.h2">A structured report, assessed by a specialist.</h2>
             <div class="report-card">
               <div class="report-top">
                 <span class="mono">SSK-0142</span>
@@ -1812,41 +1933,42 @@
                       stroke="#0F7F7A"
                       stroke-width="2"
                     />
-                    <ellipse
-                      cx="50"
-                      cy="95"
-                      rx="10"
-                      ry="26"
-                      fill="#E6F5F3"
-                      stroke="#1FA9A0"
-                      stroke-width="1.5"
-                    />
+                    <g fill="#1FA9A0" stroke="#0F7F7A" stroke-width="1">
+                      <circle cx="42" cy="32" r="7" fill-opacity=".35" />
+                      <circle cx="61" cy="30" r="7" fill-opacity=".25" />
+                      <circle cx="38" cy="62" r="8" fill-opacity=".7" />
+                      <circle cx="62" cy="64" r="8" fill-opacity=".55" />
+                      <circle cx="37" cy="110" r="7" fill-opacity=".05" />
+                      <circle cx="64" cy="110" r="7" fill-opacity=".2" />
+                      <circle cx="42" cy="162" r="9" fill-opacity=".85" />
+                      <circle cx="58" cy="162" r="9" fill-opacity=".75" />
+                    </g>
                   </svg>
                 </div>
                 <ul class="report-metrics">
                   <li>
-                    <span data-i18n="report.m.length">Foot length</span
-                    ><span class="mono">21.4 cm</span>
+                    <span data-i18n="report.m.heel">Heel load</span
+                    ><span class="mono">44 %</span>
                   </li>
                   <li>
-                    <span data-i18n="report.m.width">Foot width</span
-                    ><span class="mono">8.2 cm</span>
+                    <span data-i18n="report.m.midfoot">Midfoot load</span
+                    ><span class="mono">7 %</span>
                   </li>
                   <li>
-                    <span data-i18n="report.m.arch">Arch height</span
-                    ><span class="mono">1.9 cm</span>
+                    <span data-i18n="report.m.forefoot">Forefoot load</span
+                    ><span class="mono">49 %</span>
                   </li>
                   <li>
-                    <span data-i18n="report.m.archIndex">Arch index</span
-                    ><span class="mono">0.24</span>
+                    <span data-i18n="report.m.balance">Left / right balance</span
+                    ><span class="mono">53 / 47</span>
                   </li>
                   <li>
-                    <span data-i18n="report.m.asym">Asymmetry</span
-                    ><span class="mono">3.1 %</span>
+                    <span data-i18n="report.m.pads">Pads in contact</span
+                    ><span class="mono">8 / 8</span>
                   </li>
                   <li>
-                    <span data-i18n="report.m.fit">Shoe fit</span
-                    ><span class="mono">Size 33</span>
+                    <span data-i18n="report.m.qc">Quality check</span
+                    ><span class="mono" data-i18n="report.v.passed">Passed</span>
                   </li>
                 </ul>
               </div>
@@ -1856,11 +1978,11 @@
                 </svg>
                 <div>
                   <strong data-i18n="report.status.title"
-                    >Suggested next step: specialist consultation</strong
+                    >Suggested next step: orthopedic specialist review</strong
                   >
                   <p data-i18n="report.status.body">
-                    Not a diagnosis — a pediatric orthopedist can confirm
-                    whether anything is needed.
+                    Not a diagnosis — the specialist decides whether
+                    anything, such as custom insoles, is needed.
                   </p>
                 </div>
               </div>
@@ -1878,8 +2000,9 @@
                 <use href="#i-info" />
               </svg>
               <span data-i18n="report.note"
-                >A rule-based measurement pipeline — described honestly, not
-                sold as "diagnostic AI".</span
+                >Pressure readings only, no 3D shape. A rule-based measurement
+                pipeline — described honestly, not sold as "diagnostic
+                AI".</span
               >
             </p>
           </div>
@@ -1902,7 +2025,7 @@
                 <div>
                   <strong data-i18n="privacy.li1.title">Consent first</strong
                   ><span data-i18n="privacy.li1.body"
-                    >No scan without written parental consent.</span
+                    >No measurement without written parental consent.</span
                   >
                 </div>
               </li>
@@ -1991,7 +2114,7 @@
                 For clinics and manufacturers
               </h3>
               <p data-i18n="aud.clinics.body">
-                Receive structured, consented digital foot data instead of
+                Receive structured, consented foot-pressure data instead of
                 hand-measured guesses.
               </p>
               <a
@@ -2009,8 +2132,8 @@
               </div>
               <h3 data-i18n="aud.parents.title">For parents</h3>
               <p data-i18n="aud.parents.body">
-                Understand your child's foot growth, and know when it's worth
-                seeing a specialist.
+                Understand how your child's foot carries load, and know when
+                it's worth seeing a specialist.
               </p>
               <a
                 href="#sample-report"
@@ -2045,51 +2168,18 @@
               <div class="acc-panel">
                 <p data-i18n="learn.concept.body">
                   SoleShift Kids is an engineering and public-health project
-                  that uses 3D scanning, automated analysis, and data to assess
-                  the shape of a child's foot. It helps schools and medical
-                  institutions get digital foot data quickly, and flags cases
-                  where a specialist visit is worth considering.
+                  that supports accessible primary foot-health screening,
+                  orthopedic specialist assessment and referral for students
+                  and families, including in rural communities. Its platform
+                  uses pressure sensors to record how the foot contacts the
+                  surface and how pressure is distributed; the data is turned
+                  into a structured digital report for specialist assessment.
                 </p>
                 <p data-i18n="learn.concept.body2">
                   It is not a medical diagnostic system, and it does not
-                  manufacture insoles. With parental consent, results can be
-                  passed to partner clinics or manufacturers, who decide
-                  independently on next steps.
-                </p>
-              </div>
-            </div>
-            <div class="acc-item reveal">
-              <button class="acc-trigger">
-                <span data-i18n="learn.impact.title"
-                  >Impact — how we'll measure it</span
-                ><svg class="icon acc-icon" width="18" height="18">
-                  <use href="#i-plus" />
-                </svg>
-              </button>
-              <div class="acc-panel">
-                <p data-i18n="learn.impact.intro">
-                  We track what actually happened, not projections:
-                </p>
-                <ul class="plain-list">
-                  <li data-i18n="learn.impact.li1">Children scanned</li>
-                  <li data-i18n="learn.impact.li2">
-                    Digital reports generated
-                  </li>
-                  <li data-i18n="learn.impact.li3">
-                    Children referred for a specialist consultation
-                  </li>
-                  <li data-i18n="learn.impact.li4">Schools reached</li>
-                  <li data-i18n="learn.impact.li5">
-                    Rural medical centers involved
-                  </li>
-                  <li data-i18n="learn.impact.li6">Specialists trained</li>
-                  <li data-i18n="learn.impact.li7">Screenings completed</li>
-                  <li data-i18n="learn.impact.li8">
-                    Average processing time per scan
-                  </li>
-                </ul>
-                <p class="panel-note" data-i18n="learn.impact.note">
-                  Numbers appear on this site only once they're real.
+                  manufacture insoles. Where a specialist recommended custom
+                  insoles, they were produced and delivered through partner
+                  organizations.
                 </p>
               </div>
             </div>
@@ -2187,20 +2277,21 @@
               <div class="acc-panel">
                 <ul class="plain-list">
                   <li data-i18n="learn.roadmap.li1">
-                    01 · Prototype — hardware and analysis pipeline, in active
-                    development.
+                    01 · Prototype — an enclosed eight-pad pressure platform,
+                    built and calibrated. Done.
                   </li>
                   <li data-i18n="learn.roadmap.li2">
-                    02 · School pilot — one full screening day at one school,
-                    start to finish.
+                    02 · Field work — 8 rural schools and 2 orthopedic centers,
+                    328 measurement sessions. Done.
                   </li>
                   <li data-i18n="learn.roadmap.li3">
-                    03 · Clinical partners — consented referral to orthopedic
-                    clinics and manufacturers.
+                    03 · Specialist pathway — 276 participants reviewed by
+                    orthopedic specialists, 173 insole pairs delivered through
+                    partners. Done.
                   </li>
                   <li data-i18n="learn.roadmap.li4">
-                    04 · National rollout — more schools, more regions, more
-                    rural medical centers.
+                    04 · Next — more schools, more regions, more rural medical
+                    centers.
                   </li>
                 </ul>
                 <p class="panel-note" data-i18n="learn.roadmap.note">
@@ -2223,7 +2314,7 @@
                     visit, it never names a condition.
                   </li>
                   <li data-i18n="learn.bounds.li2">
-                    Parental consent, always — no scan without it, no sharing
+                    Parental consent, always — no measurement without it, no sharing
                     without a second, separate consent.
                   </li>
                   <li data-i18n="learn.bounds.li3">
@@ -2261,24 +2352,33 @@
             <div class="card team-card reveal">
               <span class="team-initials" aria-hidden="true">IT</span>
               <h3>Ilys Taghiyev</h3>
+              <p class="team-role" data-i18n="team.role.ilyas">Measurement software, data validation and digital reporting; trains others to use the device.</p>
             </div>
             <div class="card team-card reveal">
               <span class="team-initials" aria-hidden="true">YE</span>
               <h3>Youssef El Haroun</h3>
+              <p class="team-role" data-i18n="team.role.youssef">Electrical prototype, system integration and the service process.</p>
             </div>
             <div class="card team-card reveal">
               <span class="team-initials" aria-hidden="true">VM</span>
               <h3>Vahid Musayev</h3>
+              <p class="team-role" data-i18n="team.role.vahid">Mechanical design, stability and durability of the platform.</p>
             </div>
             <div class="card team-card reveal">
               <span class="team-initials" aria-hidden="true">JA</span>
               <h3>Jeyla Ahmadzada</h3>
+              <p class="team-role" data-i18n="team.role.jeyla">Screening methodology and coordination with orthopedic specialists.</p>
             </div>
             <div class="card team-card reveal">
               <span class="team-initials" aria-hidden="true">MA</span>
               <h3>Mikayil Ahmadbayli</h3>
+              <p class="team-role" data-i18n="team.role.mikayil">Sensor circuits, calibration and analysis of foot biomechanics.</p>
             </div>
           </div>
+          <p class="team-supervisor reveal" data-i18n="team.supervisor">
+            Scientific supervisor: Dr. Aydin Gahramanov, Doctor of Medical
+            Sciences.
+          </p>
         </div>
       </section>
 
@@ -2344,8 +2444,26 @@
               </button>
               <div class="acc-panel">
                 <p data-i18n="faq.a4">
-                  No. Manufacturing and treatment are handled entirely by our
-                  partner clinics and manufacturers.
+                  No. Where an orthopedic specialist recommends custom insoles,
+                  partner organizations produce and deliver them — 173 pairs
+                  so far.
+                </p>
+              </div>
+            </div>
+            <div class="acc-item reveal">
+              <button class="acc-trigger">
+                <span data-i18n="faq.q5"
+                  >Does the device scan the foot in 3D?</span
+                ><svg class="icon acc-icon" width="18" height="18">
+                  <use href="#i-plus" />
+                </svg>
+              </button>
+              <div class="acc-panel">
+                <p data-i18n="faq.a5">
+                  No. The platform has eight pressure sensors. It records where
+                  and how hard the foot presses on the plate — the contact
+                  pattern and pressure distribution. It does not measure the
+                  foot's 3D shape.
                 </p>
               </div>
             </div>
@@ -2510,7 +2628,7 @@
       </figure>
     </div>
 
-    <script src="js/i18n.js?v=5"></script>
-    <script src="js/main.js?v=5"></script>
+    <script src="js/i18n.js?v=6"></script>
+    <script src="js/main.js?v=6"></script>
   </body>
 </html>

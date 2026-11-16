@@ -688,6 +688,53 @@ ul {
   }
 }
 
+/* ===== Results ===== */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.result-group h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  font-size: 17px;
+}
+.result-group h3 .icon {
+  color: var(--teal);
+  flex-shrink: 0;
+}
+.result-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.result-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+.result-label {
+  font-size: 14.5px;
+  color: var(--text);
+}
+.result-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.results-note {
+  margin-top: 20px;
+  max-width: 720px;
+}
+@media (max-width: 860px) {
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ===== Two col / problem ===== */
 .two-col {
   display: grid;
@@ -1307,6 +1354,26 @@ ul {
   font-weight: 600;
   color: var(--text);
 }
+.measure-note {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--teal);
+  background: var(--teal-tint);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.measure-note .icon {
+  color: var(--teal);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.measure-note p {
+  margin: 4px 0 0;
+  font-size: 14.5px;
+  color: var(--text-secondary);
+}
 
 .build-layout {
   display: grid;
@@ -1644,6 +1711,17 @@ ul {
 .team-card h3 {
   margin: 0;
   font-size: 17px;
+}
+.team-role {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+.team-supervisor {
+  margin: 20px 0 0;
+  text-align: center;
+  font-size: 14.5px;
+  color: var(--text-secondary);
 }
 .team-initials {
   display: flex;

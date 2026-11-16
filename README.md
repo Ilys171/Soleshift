@@ -1,8 +1,8 @@
 # SoleShift Kids
 
-Early digital foot screening for children — 3D scanning, automated analysis, and consent-based referral to specialists.
+Early foot screening for children — a foot-pressure platform, structured reports for orthopedic specialist assessment, and consent-based referral.
 
-**Screening ≠ Diagnosis.** SoleShift Kids is not a medical diagnostic system and does not manufacture insoles. It scans a child's foot, produces a clear automated report for parents, and — only with separate parental consent — forwards that report to partner clinics or manufacturers, who decide on next steps independently.
+**Screening ≠ Diagnosis.** SoleShift Kids is not a medical diagnostic system and does not manufacture insoles. It records a child's foot contact and pressure distribution, produces a structured report for specialist assessment, and — only with separate parental consent — forwards that report to partner clinics or manufacturers, who decide on next steps independently.
 
 ## What's in this repo
 
@@ -11,7 +11,7 @@ This repo currently holds the project's marketing/informational website: a stati
 ```
 index.html      main page
 css/style.css   styling, palette, layout, animations
-js/main.js      nav, scroll reveals, count-up stats, FAQ accordion, hero point-cloud animation
+js/main.js      nav, scroll reveals, count-up stats, FAQ accordion, hero pressure-map animation
 ```
 
 No build step or dependencies — it's plain HTML/CSS/JS.
@@ -28,25 +28,33 @@ Then open `http://localhost:8000`.
 
 ## Project scope
 
-- **Hardware:** a 3D foot scanner (multi-camera photogrammetry / depth camera / laser + camera).
-- **Software:** a pipeline from scan → point cloud → measurements (length, width, arch height, shape) → plain-language report.
-- **Pilot:** a single school screening day, with parental consent, real metrics, and no fabricated numbers.
-- **Partnerships:** schools first, then orthopedic clinics/manufacturers, then (optionally) ministry-level outreach — only after there's a working prototype and pilot to show.
+- **Hardware:** an enclosed platform with 8 force-sensing (FSR) pads in a foot-shaped layout, read by an ESP32. It measures contact pattern and load distribution — not 3D foot shape (no length, width or arch height).
+- **Software:** measurement, quality control and a structured digital report for orthopedic specialist assessment.
+- **Process:** measurement → quality control → specialist assessment → communication with families → where recommended, custom insoles produced through partners.
 
-Honest boundaries that apply everywhere in this project: no diagnoses, no scanning without parental consent, anonymized data by default, real numbers only, honest naming of the analysis (rule-based/classifier, not "diagnostic AI"), and partners — not SoleShift Kids — provide treatment or manufacturing.
+Honest boundaries that apply everywhere in this project: no diagnoses, no measurement without parental consent, anonymized data by default, real numbers only, honest naming of the analysis (rule-based/classifier, not "diagnostic AI"), and partners — not SoleShift Kids — provide treatment or manufacturing.
 
 ## Status
 
-Idea → prototype stage. Hardware, scanning pipeline, and pilot are in progress. The website's Pilot Results section is intentionally left out until there are real numbers to publish.
+Results to date (from the project documentation reviewed by scientific supervisor Dr. Aydin Gahramanov, letter of 17 May 2025):
+
+- 10 implementation sites: 8 rural schools and 2 orthopedic centers
+- 602 unique participants (incl. 473 students from rural schools); 328 measurement sessions
+- 276 participants' data reviewed by orthopedic specialists; custom insoles recommended for 216; 173 pairs produced and delivered through partners
+- 1,570 students, parents and educators reached through foot-health education sessions
+- 105 local coordinators and site staff trained; 4 partner organizations in manufacturing and logistics
+
+These confirm documented project activity; they are not clinical validation, medical device certification or regulatory approval.
 
 ## Team
 
-- Founder & Project Lead
-- Hardware Lead
-- Software & AI Lead
-- Web & Design Lead
+- Ilys Taghiyev — measurement software, data validation, digital reporting; device instructor
+- Youssef El Haroun — electrical prototype, system integration, service process
+- Vahid Musayev — mechanical design, platform stability and durability
+- Jeyla Ahmadzada — screening methodology, coordination with orthopedic specialists
+- Mikayil Ahmadbayli — sensor circuits, calibration, foot biomechanics analysis
 
-(Roles to be filled in with names as the team is finalized.)
+Scientific supervisor: Dr. Aydin Gahramanov, Doctor of Medical Sciences.
 
 ## Contact
 
