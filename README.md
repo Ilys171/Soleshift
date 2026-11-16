@@ -48,8 +48,8 @@ These confirm documented project activity; they are not clinical validation, med
 
 ## Team
 
-- Ilys Taghiyev — measurement software, data validation, digital reporting; device instructor
-- Youssef El Haroun — electrical prototype, system integration, service process
+- Ilyas Taghiyev — measurement software, data validation, digital reporting; device instructor
+- Youssef El Haroun Arafat — electrical prototype, system integration, service process
 - Vahid Musayev — mechanical design, platform stability and durability
 - Jeyla Ahmadzada — screening methodology, coordination with orthopedic specialists
 - Mikayil Ahmadbayli — sensor circuits, calibration, foot biomechanics analysis
